@@ -7,7 +7,7 @@ public class PlayerManaBarScript : MonoBehaviour
     private Transform fullBarTransform;
     private Transform emptyBarTransform;
 
-    public PlayerStatBindings parentBindings;
+    private PlayerStatBindings parentBindings;
     public GameObject fullBarAsset;
     public GameObject emptyBarAsset;
     public float barLength;
@@ -24,6 +24,7 @@ public class PlayerManaBarScript : MonoBehaviour
 
     void Start()
     {
+        parentBindings = GetComponentInParent<CameraPlayerTracking>().player.GetComponent<PlayerStatBindings>();
         maxMana = parentBindings.maxMana;
 
         fullBarTransform = fullBarAsset.GetComponent<Transform>();

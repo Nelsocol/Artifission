@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardEnemyBindings : MonoBehaviour, UniversalEnemyBindings
+public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
 {
     private Rigidbody2D thisRigidbody;
     private Transform thisTransform;

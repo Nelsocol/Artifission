@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerStatBindings : MonoBehaviour, UniversalEnemyBindings
+public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
 {
     private Transform thisTransform;
     private SpellCaster casterScript;

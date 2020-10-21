@@ -169,6 +169,7 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+  lightColor: {r: 1, g: 0, b: 0.78337574, a: 1}
 --- !u!114 &-5753631940500780230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +199,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaCostComponent: 5
   castingTimeComponent: 0
+  recoveryTimeComponent: 0

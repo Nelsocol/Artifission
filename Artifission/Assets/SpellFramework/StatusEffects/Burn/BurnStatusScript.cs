@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BurnStatusScript : MonoBehaviour, IStatusEffect
 {
-    private UniversalEnemyBindings enemyBindings;
+    private UniversalCreatureBindings enemyBindings;
     private UnifiedHitData tickHit;
 
     public ParticleSystem burnParticles;
@@ -18,7 +18,7 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
     void Start()
     {
         tickHit = GetComponent<UnifiedHitData>();
-        enemyBindings = GetComponentInParent<UniversalEnemyBindings>();
+        enemyBindings = GetComponentInParent<UniversalCreatureBindings>();
         if (enemyBindings is StandardEnemyBindings) (enemyBindings as StandardEnemyBindings).deathParticlesOverriden = true;
 
         ParticleSystem.ShapeModule particleShape = burnParticles.shape;

@@ -50,7 +50,7 @@ public class BoltProjectileBehavior : MonoBehaviour
         if (collision.gameObject.tag != "Player")
         {
             bool enemyKilled = false;
-            UniversalEnemyBindings enemyBindings;
+            UniversalCreatureBindings enemyBindings;
             if(collision.gameObject.TryGetComponent(out enemyBindings))
             {
                 hitData.hitSource = thisTransform.position;
@@ -70,7 +70,11 @@ public class BoltProjectileBehavior : MonoBehaviour
                     particleEmission.enabled = false;
                 }
 
-                thisTransform.DetachChildren();
+                foreach(ParticleSystem particleSystem in GetComponentsInChildren<ParticleSystem>())
+                {
+                    particleSystem.transform.parent = null;
+                }
+
                 Destroy(gameObject);
             }
             else

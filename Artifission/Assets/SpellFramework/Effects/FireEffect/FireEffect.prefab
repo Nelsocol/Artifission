@@ -171,6 +171,7 @@ MonoBehaviour:
     m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
   gravityOverride: 0
   noiseModifier: 2
+  lightColor: {r: 1, g: 0.3103596, b: 0, a: 1}
 --- !u!114 &2213397650514486647
 MonoBehaviour:
   m_ObjectHideFlags: 0

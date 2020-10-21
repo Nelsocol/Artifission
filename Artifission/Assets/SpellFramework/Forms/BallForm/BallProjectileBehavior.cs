@@ -33,11 +33,11 @@ public class BallProjectileBehavior : MonoBehaviour
             List<GameObject> handledEnemies = new List<GameObject>();
             foreach(Collider2D potentialTarget in Physics2D.OverlapCircleAll(thisTransform.position, explosionRadius))
             { 
-                UniversalEnemyBindings enemyBindings;
+                UniversalCreatureBindings enemyBindings;
                 if(potentialTarget.TryGetComponent(out enemyBindings) && !(enemyBindings is PlayerStatBindings) && !handledEnemies.Contains(potentialTarget.gameObject))
                 {
                     RaycastHit2D obstructionCheck = Physics2D.Raycast(thisTransform.position, (potentialTarget.GetComponent<Transform>().position - thisTransform.position));
-                    if (obstructionCheck && obstructionCheck.collider.gameObject == potentialTarget.gameObject)
+                    if (obstructionCheck && obstructionCheck.collider.gameObject.tag != "Ground")
                     {
                         hitData.hitSource = thisTransform.position;
                         enemyBindings.TakeHit(hitData);
@@ -50,14 +50,15 @@ public class BallProjectileBehavior : MonoBehaviour
             {
                 ParticleSystem.EmissionModule particleEmission = particleSystem.emission;
                 particleEmission.enabled = false;
+                particleSystem.transform.parent = null;
             }
 
             foreach (ParticleSystem particleSystem in burstParticles.GetComponents<ParticleSystem>())
             {
                 particleSystem.Play();
+                particleSystem.transform.parent = null;
             }
             mainCamera.GetComponent<CameraShakeBindings>().AddTremor(0.1f, 0.15f);
-            thisTransform.DetachChildren();
             Destroy(gameObject);
         }
     }

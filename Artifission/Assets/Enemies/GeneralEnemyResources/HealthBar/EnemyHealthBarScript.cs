@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class EnemyHealthBarScript : MonoBehaviour
 {
     private Transform fullBarTransform;
-    private UniversalEnemyBindings parentBindings;
+    private UniversalCreatureBindings parentBindings;
     private SpriteRenderer healthBarSprite;
     private SpriteRenderer emptyBarSprite;
     private Transform emptyBarTransform;
@@ -26,7 +26,7 @@ public class EnemyHealthBarScript : MonoBehaviour
 
     void Start()
     {
-        parentBindings = GetComponentInParent<UniversalEnemyBindings>();
+        parentBindings = GetComponentInParent<UniversalCreatureBindings>();
         maxHealth = parentBindings.GetMaxHealth();
 
         fullBarTransform = fullBarAsset.GetComponent<Transform>();

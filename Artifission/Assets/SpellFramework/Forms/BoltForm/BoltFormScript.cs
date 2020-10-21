@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.InputSystem;
 
 public class BoltFormScript : MonoBehaviour, ISpellForm
@@ -14,6 +15,11 @@ public class BoltFormScript : MonoBehaviour, ISpellForm
         foreach (ParticleSystem particleSystem in projectile.GetComponentsInChildren<ParticleSystem>())
         {
             spellEffect.ApplyParticleSystemEffectors(particleSystem);
+        }
+
+        foreach (Light2D light in projectile.GetComponentsInChildren<Light2D>())
+        {
+            spellEffect.ApplyLightEffectors(light);
         }
     }
 }

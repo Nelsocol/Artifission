@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b9f39e7182dde4f823b506b32e50c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentBindings: {fileID: 0}
   fullBarAsset: {fileID: 6456019658271254405}
   emptyBarAsset: {fileID: 8674149568791941749}
   barLength: 10
@@ -75,7 +74,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6456019658271254405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8812697756607974436}
