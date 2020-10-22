@@ -66,6 +66,9 @@
     <Compile Include="Assets\Camera\CameraPlayerTracking.cs" />
     <Compile Include="Assets\Camera\CameraShakeBindings.cs" />
     <Compile Include="Assets\DeathScreen\DeathScreenBehavior.cs" />
+    <Compile Include="Assets\Enemies\Director\EnemyClusterScript.cs" />
+    <Compile Include="Assets\Enemies\Director\EnemyDirectorScript.cs" />
+    <Compile Include="Assets\Enemies\Director\EnemyNodeScript.cs" />
     <Compile Include="Assets\Enemies\GeneralEnemyResources\HealthBar\EnemyHealthBarScript.cs" />
     <Compile Include="Assets\Enemies\StandardEnemyBindings.cs" />
     <Compile Include="Assets\Enemies\TestBat\TestBatAttackScript.cs" />

@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerDeathHandler : MonoBehaviour
 {
     private PlayerStatBindings playerBindings;
+
     public DeathScreenBehavior deathScreen;
+    public EnemyDirectorScript enemyDirector;
 
     public Vector3 respawnPosition;
 
@@ -16,6 +18,7 @@ public class PlayerDeathHandler : MonoBehaviour
 
     public void Respawn()
     {
+        enemyDirector.DespawnAll(true);
         playerBindings.inMenus = false;
         playerBindings.ClearAllStatus(true);
         playerBindings.ResetStats();

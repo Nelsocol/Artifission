@@ -6,6 +6,7 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
 {
     private Rigidbody2D thisRigidbody;
     private Transform thisTransform;
+    private EnemyNodeScript parentNode;
 
     public GameObject deathParticles;
     public float maxHP;
@@ -27,6 +28,7 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
         currentHP = maxHP;
         thisRigidbody = GetComponent<Rigidbody2D>();
         thisTransform = GetComponent<Transform>();
+        transform.parent.TryGetComponent(out parentNode);
     }
 
     public virtual bool TakeHit(UnifiedHitData hitData)
@@ -72,6 +74,12 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
         {
             Destroy(deathParticles);
         }
+
+        if(parentNode)
+        {
+            parentNode.instanceKilled = true;
+        }
+
         Destroy(gameObject);
     }
 
