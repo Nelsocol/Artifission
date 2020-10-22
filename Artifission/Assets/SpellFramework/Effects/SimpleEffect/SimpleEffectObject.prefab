@@ -170,6 +170,8 @@ MonoBehaviour:
     m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
   lightColor: {r: 1, g: 0, b: 0.78337574, a: 1}
+  infusionStatus: {fileID: 3645130898066189325, guid: 486b374903c0e054abf6ee9217a1e5d0,
+    type: 3}
 --- !u!114 &-5753631940500780230
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class BoltProjectileBehavior : MonoBehaviour
     public GameObject burstParticles;
     public UnifiedHitData hitData;
     public float pauseTimeOnHit;
+    public ISpellEffect effectScript;
 
     private Vector2 movementVector;
     private float lifeTime = 3;
@@ -47,8 +48,10 @@ public class BoltProjectileBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Player")
+        if (collision.gameObject.tag != "Player" && collision.gameObject.layer != 8)
         {
+            effectScript.SpecialOnTriggerAction(transform.position);
+
             bool enemyKilled = false;
             UniversalCreatureBindings enemyBindings;
             if(collision.gameObject.TryGetComponent(out enemyBindings))

@@ -172,6 +172,8 @@ MonoBehaviour:
   gravityOverride: 0
   noiseModifier: 2
   lightColor: {r: 1, g: 0.3103596, b: 0, a: 1}
+  infusionStatus: {fileID: 5654877694629308194, guid: d581c592b83818749ab954365296a94a,
+    type: 3}
 --- !u!114 &2213397650514486647
 MonoBehaviour:
   m_ObjectHideFlags: 0

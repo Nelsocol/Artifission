@@ -10,7 +10,9 @@ public class BallFormScript : MonoBehaviour, ISpellForm
     public void Trigger(ISpellEffect spellEffect, Transform casterTransform, UnifiedHitData hitData)
     {
         GameObject projectile = Instantiate(ballProjectile, casterTransform.position, Quaternion.identity);
-        projectile.GetComponent<BallProjectileBehavior>().hitData = hitData;
+        BallProjectileBehavior projectileBehavior = projectile.GetComponent<BallProjectileBehavior>();
+        projectileBehavior.hitData = hitData;
+        projectileBehavior.effectScript = spellEffect;
 
         foreach(ParticleSystem particleSystem in projectile.GetComponentsInChildren<ParticleSystem>()){
             spellEffect.ApplyParticleSystemEffectors(particleSystem);

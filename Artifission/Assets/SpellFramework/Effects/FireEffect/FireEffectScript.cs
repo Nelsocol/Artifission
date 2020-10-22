@@ -10,6 +10,7 @@ public class FireEffectScript : MonoBehaviour, ISpellEffect
     public float gravityOverride;
     public float noiseModifier;
     public Color lightColor;
+    public GameObject infusionStatus;
 
     public void ApplyLightEffectors(Light2D light)
     {
@@ -27,5 +28,14 @@ public class FireEffectScript : MonoBehaviour, ISpellEffect
 
         ParticleSystem.NoiseModule noiseSettings = system.noise;
         noiseSettings.strengthMultiplier *= noiseModifier;
+    }
+
+    public GameObject RetrievePositiveEffect()
+    {
+        return infusionStatus;
+    }
+
+    public void SpecialOnTriggerAction(Vector2 triggerLocation)
+    {
     }
 }

@@ -7,4 +7,6 @@ public interface ISpellEffect
 {
     void ApplyParticleSystemEffectors(ParticleSystem system);
     void ApplyLightEffectors(Light2D light);
+    void SpecialOnTriggerAction(Vector2 triggerLocation);
+    GameObject RetrievePositiveEffect();
 }

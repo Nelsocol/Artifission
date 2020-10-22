@@ -14,6 +14,7 @@ public class BallProjectileBehavior : MonoBehaviour
     public GameObject burstParticles;
     public UnifiedHitData hitData;
     public float explosionRadius;
+    public ISpellEffect effectScript;
 
     private Vector2 movementVector;
 
@@ -28,8 +29,9 @@ public class BallProjectileBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != "Player")
+        if(collision.gameObject.tag != "Player" && collision.gameObject.layer != 8)
         {
+            effectScript.SpecialOnTriggerAction(transform.position);
             List<GameObject> handledEnemies = new List<GameObject>();
             foreach(Collider2D potentialTarget in Physics2D.OverlapCircleAll(thisTransform.position, explosionRadius))
             { 

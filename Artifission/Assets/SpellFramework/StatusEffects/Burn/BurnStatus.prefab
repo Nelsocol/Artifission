@@ -49,6 +49,7 @@ MonoBehaviour:
   burnParticles: {fileID: 8422934414078485769}
   deathParticles: {fileID: 1857369025884394349}
   tickRate: 0.1
+  statusTime: 5
 --- !u!114 &4147632471661751809
 MonoBehaviour:
   m_ObjectHideFlags: 0

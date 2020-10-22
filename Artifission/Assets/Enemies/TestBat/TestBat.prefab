@@ -238,8 +238,7 @@ MonoBehaviour:
   baseImpact: 5
   hitSource: {x: 0, y: 0}
   statusChance: 1
-  statusEffects:
-  - {fileID: 2493940343467377259, guid: 093969b16b4118d43843ebf1dc467da6, type: 3}
+  statusEffects: []
 --- !u!1 &5925514726448495703
 GameObject:
   m_ObjectHideFlags: 0

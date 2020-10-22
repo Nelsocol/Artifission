@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6375345535519531760}
   - component: {fileID: 3724590846922643726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ForgeGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5431114436417792548}
   - component: {fileID: 4755013108828055137}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestInteractibilityIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 6683449848271059586}
   - component: {fileID: 1144769686788650732}
   - component: {fileID: 1248185514864650437}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpellForge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,4 +278,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactibilityIndicator: {fileID: 4755013108828055137}
   spellForgeController: {fileID: 0}
-  playerDeathHandler: {fileID: 0}

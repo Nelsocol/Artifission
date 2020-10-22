@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IStatusEffect
 {
     void RemoveEffect(bool targetDead, bool hardRemoval);
+    void ResetEffect();
 }

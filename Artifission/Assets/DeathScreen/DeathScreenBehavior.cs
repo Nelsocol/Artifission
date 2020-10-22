@@ -7,12 +7,13 @@ public class DeathScreenBehavior : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
-    public PlayerDeathHandler playerReference;
+    private PlayerDeathHandler playerReference;
     public bool fadeIn;
     public float fadeTime;
 
     void Start()
     {
+        playerReference = GetComponentInParent<CameraPlayerTracking>().player.GetComponent<PlayerDeathHandler>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = new Color(1,1,1,0);
         transform.localPosition = new Vector3(0,0,1);

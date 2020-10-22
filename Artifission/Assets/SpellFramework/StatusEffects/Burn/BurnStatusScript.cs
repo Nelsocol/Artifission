@@ -11,12 +11,15 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
     public ParticleSystem deathParticles;
 
     public float tickRate;
+    public float statusTime;
 
     private float elapsedTime = 0;
     private bool removed = false;
+    private float remainingStatusTime;
 
     void Start()
     {
+        remainingStatusTime = statusTime;
         tickHit = GetComponent<UnifiedHitData>();
         enemyBindings = GetComponentInParent<UniversalCreatureBindings>();
         if (enemyBindings is StandardEnemyBindings) (enemyBindings as StandardEnemyBindings).deathParticlesOverriden = true;
@@ -32,7 +35,7 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
 
     void FixedUpdate()
     {
-        if (!removed)
+        if (!removed && remainingStatusTime > 0)
         {
             if (elapsedTime > tickRate)
             {
@@ -41,6 +44,11 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
             }
             elapsedTime += Time.fixedDeltaTime;
         }
+        else
+        {
+            RemoveEffect(false, false);
+        }
+        remainingStatusTime -= Time.fixedDeltaTime;
     }
 
     public void RemoveEffect(bool targetDead, bool hardRemoval)
@@ -48,19 +56,25 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
         removed = true;
         burnParticles.Stop();
 
-        if(targetDead)
+        if (!hardRemoval)
         {
-            if (!hardRemoval)
+            transform.DetachChildren();
+            if (targetDead)
             {
-                transform.DetachChildren();
                 deathParticles.Play();
             }
         }
-        else
+
+        if(!targetDead)
         {
 
             if (enemyBindings is StandardEnemyBindings) (enemyBindings as StandardEnemyBindings).deathParticlesOverriden = false;
         }
         Destroy(gameObject);
+    }
+
+    public void ResetEffect()
+    {
+        remainingStatusTime = statusTime;
     }
 }

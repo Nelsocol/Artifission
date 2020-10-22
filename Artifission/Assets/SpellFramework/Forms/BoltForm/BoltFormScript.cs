@@ -10,7 +10,10 @@ public class BoltFormScript : MonoBehaviour, ISpellForm
     public void Trigger(ISpellEffect spellEffect, Transform casterTransform, UnifiedHitData hitData)
     {
         GameObject projectile = Instantiate(projectilePrefab, casterTransform.position, Quaternion.identity);
-        projectile.GetComponent<BoltProjectileBehavior>().hitData = hitData;
+        BoltProjectileBehavior projectileScript = projectile.GetComponent<BoltProjectileBehavior>();
+        projectileScript.hitData = hitData;
+        projectileScript.effectScript = spellEffect;
+
 
         foreach (ParticleSystem particleSystem in projectile.GetComponentsInChildren<ParticleSystem>())
         {

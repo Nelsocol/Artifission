@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
 {
@@ -69,7 +70,14 @@ public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
 
     public void ApplyStatus(GameObject statusEffect)
     {
-        Instantiate(statusEffect, thisTransform);
+        if (!GetComponentsInChildren<IStatusEffect>().Any(e => e.GetType() == statusEffect.GetComponent<IStatusEffect>().GetType()))
+        {
+            Instantiate(statusEffect, thisTransform);
+        }
+        else
+        {
+            GetComponentsInChildren<IStatusEffect>().First(e => e.GetType() == statusEffect.GetComponent<IStatusEffect>().GetType()).ResetEffect();
+        }
     }
 
     public float GetParticleEffectScalar()
