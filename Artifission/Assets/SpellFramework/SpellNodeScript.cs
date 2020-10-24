@@ -13,16 +13,19 @@ public class SpellNodeScript : MonoBehaviour
     private UnifiedHitData hitData;
     private SpellCostComponents effectCostComponent;
     private SpellCostComponents formCostComponent;
+    private PlayerStatBindings playerBindings;
 
     public GameObject formPrefab;
     public GameObject effectObject;
     public bool casting = false;
     public float manaCost;
+    public bool continuousCast;
+    public float manaPerSecond;
 
     private float expendedTime = 0;
     private bool spellTriggered;
-    private float castTime;
     private float recoveryTime;
+    private bool finishedContinuousCast = true;
 
     void Start()
     {
@@ -34,23 +37,47 @@ public class SpellNodeScript : MonoBehaviour
         casting = true;
         spellTriggered = false;
         expendedTime = 0;
+
+        if(continuousCast)
+        {
+            finishedContinuousCast = false;
+        }
+    }
+
+    public void EndCast()
+    {
+        spellFormScript.EndTrigger(spellEffectScript, thisTransform, hitData);
+        finishedContinuousCast = true;
     }
 
     private void Update()
     {
         if(casting)
         {
-            if(expendedTime > castTime && !spellTriggered)
+            if(!spellTriggered)
             {
                 spellFormScript.Trigger(spellEffectScript, thisTransform, hitData);
                 spellTriggered = true;
             }
 
-            if(expendedTime > castTime + recoveryTime)
+            if(expendedTime > recoveryTime)
             {
                 casting = false;
             }
-            expendedTime += Time.deltaTime;
+
+            if (finishedContinuousCast)
+            {
+                expendedTime += Time.deltaTime;
+            }
+        }
+
+        if(!finishedContinuousCast)
+        {
+            playerBindings.DepleteMana((manaPerSecond + playerBindings.constantManaRegeneration) * Time.deltaTime);
+            if(playerBindings.currentMana <= 0)
+            {
+                EndCast();
+            }
         }
     }
 
@@ -80,10 +107,12 @@ public class SpellNodeScript : MonoBehaviour
         formHitData = formPrefab.GetComponent<FormHitData>();
         effectCostComponent = formPrefab.GetComponent<SpellCostComponents>();
         formCostComponent = effectObject.GetComponent<SpellCostComponents>();
+        playerBindings = GetComponentInParent<PlayerStatBindings>();
 
         hitData = GenerateHitData();
-        castTime = effectCostComponent.castingTimeComponent + formCostComponent.castingTimeComponent;
         manaCost = effectCostComponent.manaCostComponent + formCostComponent.manaCostComponent;
         recoveryTime = effectCostComponent.recoveryTimeComponent + formCostComponent.recoveryTimeComponent;
+        continuousCast = spellFormScript.IsContinuous();
+        manaPerSecond = effectCostComponent.manaPerSecond + formCostComponent.manaPerSecond;
     }
 }

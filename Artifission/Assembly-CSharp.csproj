@@ -98,6 +98,8 @@
     <Compile Include="Assets\SpellFramework\Effects\SimpleEffect\SimpleEffectScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BallForm\BallFormScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BallForm\BallProjectileBehavior.cs" />
+    <Compile Include="Assets\SpellFramework\Forms\BeamForm\BeamBehavior.cs" />
+    <Compile Include="Assets\SpellFramework\Forms\BeamForm\BeamFormScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BoltForm\BoltFormScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BoltForm\BoltProjectileBehavior.cs" />
     <Compile Include="Assets\SpellFramework\Forms\FormHitData.cs" />

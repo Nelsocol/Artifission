@@ -7,6 +7,15 @@ public class BallFormScript : MonoBehaviour, ISpellForm
 {
     public GameObject ballProjectile;
 
+    public void EndTrigger(ISpellEffect spellEffect, Transform casterTransform, UnifiedHitData hitData)
+    { 
+    }
+
+    public bool IsContinuous()
+    {
+        return false;
+    }
+
     public void Trigger(ISpellEffect spellEffect, Transform casterTransform, UnifiedHitData hitData)
     {
         GameObject projectile = Instantiate(ballProjectile, casterTransform.position, Quaternion.identity);

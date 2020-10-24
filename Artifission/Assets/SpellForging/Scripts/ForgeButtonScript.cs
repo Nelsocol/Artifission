@@ -9,6 +9,7 @@ public class ForgeButtonScript : MonoBehaviour
 
     public SlotScript primaryFormNode;
     public SlotScript primaryEffectNode;
+    public int spellInsertionIndex;
 
     void Update()
     {
@@ -27,7 +28,7 @@ public class ForgeButtonScript : MonoBehaviour
                     SpellNodeScript newSpellNode = gameObject.AddComponent<SpellNodeScript>();
                     newSpellNode.formPrefab = formRune;
                     newSpellNode.effectObject = effectRune;
-                    playerBindings.SwapSpell(newSpellNode, 0);
+                    playerBindings.SwapSpell(newSpellNode, spellInsertionIndex);
                     Destroy(newSpellNode);
                 }
             }

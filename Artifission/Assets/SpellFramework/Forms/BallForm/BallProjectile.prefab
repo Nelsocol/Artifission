@@ -4925,11 +4925,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e01cef27b31b4ab29496ee84b691a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 10
+  throwForce: 12.5
   projectileParticles: {fileID: 3470210062885238795}
   burstParticles: {fileID: 6069436840052716410}
   hitData: {fileID: 0}
-  explosionRadius: 1.25
+  explosionRadius: 2
 --- !u!50 &7445053953630711966
 Rigidbody2D:
   serializedVersion: 4

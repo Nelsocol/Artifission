@@ -9737,7 +9737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396d928d96ded0c4b9ae9b372ce4955c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileParticles: {fileID: 5773614211243519959}
   burstParticles: {fileID: 1063967803913186034}
   hitData: {fileID: 0}

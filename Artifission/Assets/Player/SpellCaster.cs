@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using UnityEngine.InputSystem.Controls;
 
 public class SpellCaster : MonoBehaviour
 {
@@ -10,8 +11,20 @@ public class SpellCaster : MonoBehaviour
 
     public SpellNodeScript[] spellNodes;
 
+    private List<ButtonControl> inputList;
     public void Start()
     {
+        inputList = new List<ButtonControl>()
+        {
+            Mouse.current.leftButton,
+            Mouse.current.rightButton,
+            Keyboard.current.digit1Key,
+            Keyboard.current.digit2Key,
+            Keyboard.current.digit3Key,
+            Keyboard.current.digit4Key,
+            Keyboard.current.digit5Key
+        };
+
         playerBindings = GetComponent<PlayerStatBindings>();
     }
 
@@ -19,16 +32,29 @@ public class SpellCaster : MonoBehaviour
     {
         if (spellNodes.Where(e => e.casting).Count() == 0 && playerBindings.inMenus == false)
         {
-            if (Mouse.current.leftButton.isPressed && playerBindings.currentMana > spellNodes[0].manaCost)
+            foreach (ButtonControl input in inputList)
             {
-                playerBindings.DepleteMana(spellNodes[0].manaCost);
-                spellNodes[0].CastSpell();
+                int index = inputList.IndexOf(input);
+                if (input.IsPressed() && playerBindings.currentMana > spellNodes[index].manaCost)
+                {
+                    playerBindings.DepleteMana(spellNodes[index].manaCost);
+                    spellNodes[index].CastSpell();
+                }
             }
-            else if (Mouse.current.rightButton.isPressed && playerBindings.currentMana > spellNodes[1].manaCost)
+        }
+
+        if(playerBindings.inMenus == false)
+        {
+            foreach (ButtonControl input in inputList)
             {
-                playerBindings.DepleteMana(spellNodes[1].manaCost);
-                spellNodes[1].CastSpell();
+                int index = inputList.IndexOf(input);
+                if (input.wasReleasedThisFrame && spellNodes[index].continuousCast)
+                {
+                    spellNodes[index].EndCast();
+                }
             }
+
+
         }
     }
 }

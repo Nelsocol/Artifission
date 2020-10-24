@@ -41,7 +41,7 @@ public class SpellForgeController : MonoBehaviour
         }
         else 
         {
-            transform.position = new Vector3(0, 10, 3.5f);
+            transform.position = new Vector3(0, 30, 3.5f);
             playerBindings.inMenus = false;
         }
     }
