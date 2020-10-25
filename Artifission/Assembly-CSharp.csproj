@@ -66,6 +66,9 @@
     <Compile Include="Assets\Camera\CameraPlayerTracking.cs" />
     <Compile Include="Assets\Camera\CameraShakeBindings.cs" />
     <Compile Include="Assets\DeathScreen\DeathScreenBehavior.cs" />
+    <Compile Include="Assets\Enemies\AIFramework\CreatureBrainCore.cs" />
+    <Compile Include="Assets\Enemies\AIFramework\ICreatureState.cs" />
+    <Compile Include="Assets\Enemies\AIFramework\StateContext.cs" />
     <Compile Include="Assets\Enemies\Director\EnemyClusterScript.cs" />
     <Compile Include="Assets\Enemies\Director\EnemyDirectorScript.cs" />
     <Compile Include="Assets\Enemies\Director\EnemyNodeScript.cs" />
@@ -73,6 +76,10 @@
     <Compile Include="Assets\Enemies\StandardEnemyBindings.cs" />
     <Compile Include="Assets\Enemies\TestBat\TestBatAttackScript.cs" />
     <Compile Include="Assets\Enemies\TestBat\TestBatBindings.cs" />
+    <Compile Include="Assets\Enemies\TestBat\TestBatChargingState.cs" />
+    <Compile Include="Assets\Enemies\TestBat\TestBatRetreatState.cs" />
+    <Compile Include="Assets\Enemies\TestBat\TestBatStillState.cs" />
+    <Compile Include="Assets\Enemies\TestBat\TestBatStunnedState.cs" />
     <Compile Include="Assets\Enemies\UnifiedHitData.cs" />
     <Compile Include="Assets\Enemies\UniversalCreatureBindings.cs" />
     <Compile Include="Assets\Player\DeathHandler\PlayerDeathHandler.cs" />

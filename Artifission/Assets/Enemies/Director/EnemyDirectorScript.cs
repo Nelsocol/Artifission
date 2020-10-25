@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyDirectorScript : MonoBehaviour
 {
+    public GameObject playerReference;
+
     private EnemyClusterScript[] childClusters;
 
     void Start()

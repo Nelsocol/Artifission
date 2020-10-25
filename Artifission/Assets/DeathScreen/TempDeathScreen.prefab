@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeIn: 0
-  fadeTime: 0
+  fadeTime: 0.25

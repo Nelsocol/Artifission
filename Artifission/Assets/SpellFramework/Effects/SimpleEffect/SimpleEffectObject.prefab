@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamageMultiplier: 1.5
-  baseImpactMultiplier: 2
+  baseImpactMultiplier: 3
   statusEffects: []
 --- !u!114 &7822774683490476476
 MonoBehaviour:
@@ -200,5 +200,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaCostComponent: 5
-  castingTimeComponent: 0
   recoveryTimeComponent: 0
+  manaPerSecond: 0

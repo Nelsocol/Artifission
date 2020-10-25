@@ -594,11 +594,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912215623869429774, guid: 8a0ae81b929c7de418f9d493a926c3c1,
         type: 3}
-      propertyPath: fadeTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8912215623869429774, guid: 8a0ae81b929c7de418f9d493a926c3c1,
-        type: 3}
       propertyPath: playerReference
       value: 
       objectReference: {fileID: 0}

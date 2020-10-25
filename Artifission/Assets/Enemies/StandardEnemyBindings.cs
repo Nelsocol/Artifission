@@ -7,6 +7,7 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
     private Rigidbody2D thisRigidbody;
     private Transform thisTransform;
     private EnemyNodeScript parentNode;
+    private CreatureBrainCore thisBrain;
 
     public GameObject deathParticles;
     public float maxHP;
@@ -19,7 +20,7 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
     {
         if(hitData.baseImpact > weight)
         {
-            thisRigidbody.AddForce((thisRigidbody.position - hitData.hitSource).normalized * hitData.baseImpact, ForceMode2D.Impulse);
+            thisBrain.SendMessage(StateMessages.Stunned);
         }
     }
 
@@ -29,6 +30,7 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
         thisRigidbody = GetComponent<Rigidbody2D>();
         thisTransform = GetComponent<Transform>();
         transform.parent.TryGetComponent(out parentNode);
+        thisBrain = GetComponentInChildren<CreatureBrainCore>();
     }
 
     public virtual bool TakeHit(UnifiedHitData hitData)

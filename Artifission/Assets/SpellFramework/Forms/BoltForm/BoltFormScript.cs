@@ -14,7 +14,7 @@ public class BoltFormScript : MonoBehaviour, ISpellForm
 
     public bool IsContinuous()
     {
-        return true;
+        return false;
     }
 
     public void Trigger(ISpellEffect spellEffect, Transform casterTransform, UnifiedHitData hitData)
