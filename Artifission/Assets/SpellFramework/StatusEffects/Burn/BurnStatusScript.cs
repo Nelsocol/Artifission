@@ -39,7 +39,7 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
         {
             if (elapsedTime > tickRate)
             {
-                enemyBindings.TakeHit(tickHit);
+                enemyBindings.TakeHit(tickHit, 1);
                 elapsedTime = 0;
             }
             elapsedTime += Time.fixedDeltaTime;

@@ -5248,6 +5248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreatureBrain
       objectReference: {fileID: 0}
+    - target: {fileID: 4733532226084691759, guid: 8ec7713678683484cbe57718cec0242b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4860209566103446501, guid: 8ec7713678683484cbe57718cec0242b,
         type: 3}
       propertyPath: overrideActions.Array.size

@@ -41,6 +41,10 @@ public class FlightEffectScript : MonoBehaviour, ISpellEffect
         return infusionStatus;
     }
 
+    public void SpecialOnHitAction(GameObject hitTarget, UnifiedHitData originalHitData)
+    {
+    }
+
     public void SpecialOnTriggerAction(Vector2 triggerLocation)
     {
         Instantiate(updraftObject, triggerLocation += new Vector2(0, -0.3f), Quaternion.identity);

@@ -6,10 +6,12 @@ using UnityEngine;
 public class EnemyClusterScript : MonoBehaviour
 {
     private EnemyNodeScript[] childNodes;
+    private Collider2D thisCollider;
 
     private void Start()
     {
         childNodes = GetComponentsInChildren<EnemyNodeScript>();
+        thisCollider = GetComponent<Collider2D>();
     }
 
     public void DespawnAll(bool playerDeath)
@@ -24,6 +26,13 @@ public class EnemyClusterScript : MonoBehaviour
             {
                 enemyNode.DespawnInstance();
             }
+        }
+
+        List<Collider2D> overlappingColliders = new List<Collider2D>();
+        thisCollider.OverlapCollider(new ContactFilter2D(), overlappingColliders);
+        if(overlappingColliders.Exists(e => e.tag == "Player"))
+        {
+            OnTriggerEnter2D(overlappingColliders.First(e => e.tag == "Player"));
         }
     }
 

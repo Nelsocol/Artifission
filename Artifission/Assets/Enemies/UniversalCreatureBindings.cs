@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface UniversalCreatureBindings
 {
-    bool TakeHit(UnifiedHitData hitData);
+    bool TakeHit(UnifiedHitData hitData, float hitScalar);
     void ReceiveImpact(UnifiedHitData hitData);
     void Kill();
     void ApplyStatus(GameObject statusEffect);

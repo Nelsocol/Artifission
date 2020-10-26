@@ -35,6 +35,10 @@ public class FireEffectScript : MonoBehaviour, ISpellEffect
         return infusionStatus;
     }
 
+    public void SpecialOnHitAction(GameObject hitTarget, UnifiedHitData originalHitData)
+    {
+    }
+
     public void SpecialOnTriggerAction(Vector2 triggerLocation)
     {
     }

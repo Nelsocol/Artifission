@@ -35,7 +35,7 @@ public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
         currentMana -= depletionAmount;
     }
 
-    public bool TakeHit(UnifiedHitData hitData)
+    public bool TakeHit(UnifiedHitData hitData, float hitScalar)
     {
         currentHealth = Mathf.Clamp(currentHealth - hitData.baseDamage, 0, maxHealth);
 

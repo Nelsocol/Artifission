@@ -42,8 +42,9 @@ public class BallProjectileBehavior : MonoBehaviour
                     if (obstructionCheck && obstructionCheck.collider.gameObject.tag != "Ground")
                     {
                         hitData.hitSource = thisTransform.position;
-                        enemyBindings.TakeHit(hitData);
+                        enemyBindings.TakeHit(hitData, 1);
                         handledEnemies.Add(potentialTarget.gameObject);
+                        effectScript.SpecialOnHitAction(potentialTarget.gameObject, hitData);
                     }
                 }
             }

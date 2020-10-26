@@ -102,6 +102,8 @@
     <Compile Include="Assets\SpellFramework\Effects\FlightEffect\FlightEffectScript.cs" />
     <Compile Include="Assets\SpellFramework\Effects\FlightEffect\UpdraftScript.cs" />
     <Compile Include="Assets\SpellFramework\Effects\FlightEffect\UpdraftSeedScript.cs" />
+    <Compile Include="Assets\SpellFramework\Effects\LightningEffect\ArcScript.cs" />
+    <Compile Include="Assets\SpellFramework\Effects\LightningEffect\LightningEffectScript.cs" />
     <Compile Include="Assets\SpellFramework\Effects\SimpleEffect\SimpleEffectScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BallForm\BallFormScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BallForm\BallProjectileBehavior.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Assets\SpellFramework\StatusEffects\FireInfusion\FireInfusionScript.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\FlightInfusion\FlightStatus.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\IStatusEffect.cs" />
+    <Compile Include="Assets\SpellFramework\StatusEffects\LightningInfusion\LightningStatusScript.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\MagicInfusion\MagicInfusionScript.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

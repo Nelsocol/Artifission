@@ -9,4 +9,5 @@ public interface ISpellEffect
     void ApplyLightEffectors(Light2D light);
     void SpecialOnTriggerAction(Vector2 triggerLocation);
     GameObject RetrievePositiveEffect();
+    void SpecialOnHitAction(GameObject hitTarget, UnifiedHitData originalHitData);
 }

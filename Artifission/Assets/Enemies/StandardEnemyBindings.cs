@@ -33,9 +33,9 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
         thisBrain = GetComponentInChildren<CreatureBrainCore>();
     }
 
-    public virtual bool TakeHit(UnifiedHitData hitData)
+    public virtual bool TakeHit(UnifiedHitData hitData, float hitScalar)
     {
-        currentHP -= hitData.baseDamage;
+        currentHP -= hitData.baseDamage * hitScalar;
 
         if (currentHP <= 0)
         {

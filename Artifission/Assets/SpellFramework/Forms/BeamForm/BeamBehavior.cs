@@ -47,7 +47,8 @@ public class BeamBehavior : MonoBehaviour
             if(timeElapsed > hitInterval && directionalCast.transform.gameObject.TryGetComponent(out potentialEnemyBindings))
             {
                 hitData.hitSource = storedPlayerTransform.position;
-                potentialEnemyBindings.TakeHit(hitData);
+                potentialEnemyBindings.TakeHit(hitData, 1);
+                spellEffect.SpecialOnHitAction(potentialEnemyBindings.gameObject, hitData);
                 timeElapsed = 0;
             }
 

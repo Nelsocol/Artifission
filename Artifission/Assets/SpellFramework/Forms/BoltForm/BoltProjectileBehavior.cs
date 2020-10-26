@@ -57,7 +57,8 @@ public class BoltProjectileBehavior : MonoBehaviour
             if(collision.gameObject.TryGetComponent(out enemyBindings))
             {
                 hitData.hitSource = thisTransform.position;
-                enemyKilled = enemyBindings.TakeHit(hitData);
+                enemyKilled = enemyBindings.TakeHit(hitData, 1);
+                effectScript.SpecialOnHitAction(collision.gameObject, hitData);
             }
 
             foreach (ParticleSystem particleSystem in burstParticles.GetComponents<ParticleSystem>())

@@ -16,7 +16,7 @@ public class TestBatAttackScript : MonoBehaviour
         PlayerStatBindings playerBindings;
         if(collision.gameObject.TryGetComponent(out playerBindings))
         {
-            playerBindings.TakeHit(hitData);
+            playerBindings.TakeHit(hitData, 1);
         }
     }
 }
