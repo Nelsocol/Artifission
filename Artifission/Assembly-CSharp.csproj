@@ -97,6 +97,7 @@
     <Compile Include="Assets\SpellForging\Scripts\SpellForgeInteractionScript.cs" />
     <Compile Include="Assets\SpellForging\Scripts\StandardInteractable.cs" />
     <Compile Include="Assets\SpellForging\Scripts\TileScript.cs" />
+    <Compile Include="Assets\SpellFramework\Effects\AttractionEffect\AttractionEffectScript.cs" />
     <Compile Include="Assets\SpellFramework\Effects\EffectHitData.cs" />
     <Compile Include="Assets\SpellFramework\Effects\FireEffect\FireEffectScript.cs" />
     <Compile Include="Assets\SpellFramework\Effects\FlightEffect\FlightEffectScript.cs" />
@@ -113,10 +114,13 @@
     <Compile Include="Assets\SpellFramework\Forms\BoltForm\BoltProjectileBehavior.cs" />
     <Compile Include="Assets\SpellFramework\Forms\FormHitData.cs" />
     <Compile Include="Assets\SpellFramework\Forms\InfusionForm\InfusionFormScript.cs" />
+    <Compile Include="Assets\SpellFramework\Forms\OrbitalForm\OrbitalScript.cs" />
+    <Compile Include="Assets\SpellFramework\Forms\OrbitalForm\SelfDestruct.cs" />
     <Compile Include="Assets\SpellFramework\ISpellEffect.cs" />
     <Compile Include="Assets\SpellFramework\ISpellForm.cs" />
     <Compile Include="Assets\SpellFramework\SpellCostComponents.cs" />
     <Compile Include="Assets\SpellFramework\SpellNodeScript.cs" />
+    <Compile Include="Assets\SpellFramework\StatusEffects\AttractionInfusion\AttractionStatusScript.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\Burn\BurnStatusScript.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\FireInfusion\FireInfusionScript.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\FlightInfusion\FlightStatus.cs" />

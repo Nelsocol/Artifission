@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraShakeBindings : MonoBehaviour
 {
+    public CameraPlayerTracking trackingScript;
+
     private Transform myTransform;
 
     private float shakeAmount = 0;
@@ -22,7 +24,7 @@ public class CameraShakeBindings : MonoBehaviour
         {
             if (!outOfPosition)
             {
-                myTransform.position += new Vector3(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount), 0);
+                transform.position += new Vector3(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount), 0);
                 outOfPosition = true;
             }
             else
@@ -36,6 +38,11 @@ public class CameraShakeBindings : MonoBehaviour
         {
             myTransform.position = originalPosition;
             outOfPosition = false;
+            trackingScript.tracking = true;
+        }
+        else
+        {
+            trackingScript.tracking = true;
         }
     }
 
@@ -47,6 +54,7 @@ public class CameraShakeBindings : MonoBehaviour
             shakeAmount = amount;
             elapsedTime = timeSpan;
             outOfPosition = true;
+            trackingScript.tracking = false;
         }
     }
 }

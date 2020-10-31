@@ -23,10 +23,10 @@ public class SpellForgeController : MonoBehaviour
         foreach(RuneRecord rune in playerBindings.GetComponentInChildren<PlayerRuneList>().runeCollection.Where(e => e.unlocked))
         {
             GameObject newTile = Instantiate(tileObject, transform);
-            newTile.transform.localPosition = new Vector3(-7 + Random.Range(-0.5f, 0.5f),currentHeight,-1);
+            newTile.transform.localPosition = new Vector3(-8 + Random.Range(-0.1f, 0.1f),currentHeight,-1);
             newTile.GetComponent<TileScript>().boundRune = rune;
             newTile.GetComponent<SpriteRenderer>().sprite = rune.tileSprite;
-            currentHeight -= 1f;
+            currentHeight -= 0.75f;
         }
     }
     

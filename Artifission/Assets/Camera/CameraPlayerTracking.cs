@@ -8,6 +8,7 @@ public class CameraPlayerTracking : MonoBehaviour
     private Transform playerTransform;
 
     public GameObject player;
+    public bool tracking = true;
 
     void Start()
     {
@@ -17,6 +18,9 @@ public class CameraPlayerTracking : MonoBehaviour
 
     void Update()
     {
-        thisTransform.position = new Vector3(playerTransform.position.x, thisTransform.position.y, thisTransform.position.z);
+        if (tracking)
+        {
+            thisTransform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, thisTransform.position.z);
+        }
     }
 }
