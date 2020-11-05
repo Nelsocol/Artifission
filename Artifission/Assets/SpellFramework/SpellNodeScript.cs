@@ -17,13 +17,13 @@ public class SpellNodeScript : MonoBehaviour
 
     public GameObject formPrefab;
     public GameObject effectObject;
-    public bool casting = false;
+    private bool casting = false;
+    public bool occupyingCaster;
     public float manaCost;
     public bool continuousCast;
     public float manaPerSecond;
 
     private float expendedTime = 0;
-    private bool spellTriggered;
     private float recoveryTime;
     private bool finishedContinuousCast = true;
 
@@ -34,13 +34,17 @@ public class SpellNodeScript : MonoBehaviour
 
     public void CastSpell()
     {
-        casting = true;
-        spellTriggered = false;
-        expendedTime = 0;
-
-        if(continuousCast)
+        if (expendedTime > recoveryTime)
         {
-            finishedContinuousCast = false;
+            casting = true;
+            occupyingCaster = true;
+
+            spellFormScript.InitializeSpell(spellEffectScript, transform);
+
+            if (continuousCast)
+            {
+                finishedContinuousCast = false;
+            }
         }
     }
 
@@ -48,35 +52,35 @@ public class SpellNodeScript : MonoBehaviour
     {
         spellFormScript.EndTrigger(spellEffectScript, thisTransform, hitData);
         finishedContinuousCast = true;
+        occupyingCaster = false;
     }
 
     private void Update()
     {
         if(casting)
         {
-            if(!spellTriggered)
+            if(spellFormScript.WindUp())
             {
-                spellFormScript.Trigger(spellEffectScript, thisTransform, hitData);
-                spellTriggered = true;
-            }
+                if(!continuousCast)
+                {
+                    occupyingCaster = false;
+                }
 
-            if(expendedTime > recoveryTime)
-            {
                 casting = false;
-            }
-
-            if (finishedContinuousCast)
-            {
-                expendedTime += Time.deltaTime;
+                playerBindings.DepleteMana(manaCost);
+                spellFormScript.Trigger(spellEffectScript, transform, hitData);
+                expendedTime = 0;
             }
         }
-
-        if(!finishedContinuousCast)
+        else
         {
-            playerBindings.DepleteMana((manaPerSecond + playerBindings.constantManaRegeneration) * Time.deltaTime);
-            if(playerBindings.currentMana <= 0)
+            if(!finishedContinuousCast)
             {
-                EndCast();
+                playerBindings.DepleteMana(manaPerSecond * Time.deltaTime);
+            }
+            else
+            {
+                expendedTime += Time.deltaTime;
             }
         }
     }

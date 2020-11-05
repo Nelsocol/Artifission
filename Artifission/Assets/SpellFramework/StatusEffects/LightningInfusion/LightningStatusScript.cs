@@ -7,16 +7,17 @@ public class LightningStatusScript : MonoBehaviour, IStatusEffect
     private PlayerMovement playerStats = null;
 
     public float speedMultiplier;
-    public float statusTime;
+    private float statusTime;
 
     private float remainingStatusTime;
+    private float power;
 
     private void Start()
     {
         remainingStatusTime = statusTime;
         if (transform.parent.TryGetComponent(out playerStats))
         {
-            playerStats.walkSpeed *= speedMultiplier;
+            playerStats.walkSpeed *= speedMultiplier * power;
         }
     }
 
@@ -33,7 +34,7 @@ public class LightningStatusScript : MonoBehaviour, IStatusEffect
     {
         if (playerStats != null)
         {
-            playerStats.walkSpeed /= speedMultiplier;
+            playerStats.walkSpeed /= (speedMultiplier * power);
         }
 
         if (!hardRemoval)
@@ -50,6 +51,13 @@ public class LightningStatusScript : MonoBehaviour, IStatusEffect
 
     public void ResetEffect()
     {
+        remainingStatusTime = statusTime;
+    }
+
+    public void SetParameters(float powerAffector, float duration)
+    {
+        power = powerAffector;
+        statusTime = duration;
         remainingStatusTime = statusTime;
     }
 }

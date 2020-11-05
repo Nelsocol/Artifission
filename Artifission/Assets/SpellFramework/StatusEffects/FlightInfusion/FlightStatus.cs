@@ -8,12 +8,13 @@ public class FlightStatus : MonoBehaviour, IStatusEffect
     private PlayerMovement playerMovement;
 
     public float verticalDriftStrength;
-    public float statusTime;
+    private float statusTime;
     public float horizontalSpeedAffector;
 
     Rigidbody2D parentRigidbody;
     private float originalGravity;
     private float remainingStatusTime;
+    private float power;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class FlightStatus : MonoBehaviour, IStatusEffect
             originalGravity = parentRigidbody.gravityScale;
             parentRigidbody.gravityScale = 0;
             playerMovement = transform.parent.GetComponent<PlayerMovement>();
-            playerMovement.walkSpeed /= horizontalSpeedAffector;
+            playerMovement.walkSpeed = playerMovement.walkSpeed / horizontalSpeedAffector * power;
         }
     }
 
@@ -33,11 +34,11 @@ public class FlightStatus : MonoBehaviour, IStatusEffect
         {
             if (Keyboard.current.wKey.IsPressed())
             {
-                parentRigidbody.AddForce(new Vector2(0, verticalDriftStrength));
+                parentRigidbody.AddForce(new Vector2(0, verticalDriftStrength * power));
             }
             else if(Keyboard.current.sKey.IsPressed())
             {
-                parentRigidbody.AddForce(new Vector2(0, -verticalDriftStrength));
+                parentRigidbody.AddForce(new Vector2(0, -verticalDriftStrength * power));
             }
         }
         else
@@ -52,7 +53,7 @@ public class FlightStatus : MonoBehaviour, IStatusEffect
         if (parentRigidbody != null)
         {
             parentRigidbody.gravityScale = originalGravity;
-            playerMovement.walkSpeed *= horizontalSpeedAffector;
+            playerMovement.walkSpeed  = playerMovement.walkSpeed / power *horizontalSpeedAffector;
         }
 
         if(!hardRemoval)
@@ -69,6 +70,13 @@ public class FlightStatus : MonoBehaviour, IStatusEffect
 
     public void ResetEffect()
     {
+        remainingStatusTime = statusTime;
+    }
+
+    public void SetParameters(float powerAffector, float duration)
+    {
+        power = powerAffector;
+        statusTime = duration;
         remainingStatusTime = statusTime;
     }
 }

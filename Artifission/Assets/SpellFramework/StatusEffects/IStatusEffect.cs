@@ -6,4 +6,5 @@ public interface IStatusEffect
 {
     void RemoveEffect(bool targetDead, bool hardRemoval);
     void ResetEffect();
+    void SetParameters(float powerAffector, float duration);
 }

@@ -259,7 +259,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_ConstantMin: 0
     m_ConstantMax: 0
-  baseParticleSize: 2
+  baseParticleSize: 1
   dampingThresholdOverride: 0
   dampingStrengthOverride: 0.2
   attractionZoneAsset: {fileID: 3046608414893991122, guid: 9cfca26b5cd7d174d8c5cad749fd2dfe,

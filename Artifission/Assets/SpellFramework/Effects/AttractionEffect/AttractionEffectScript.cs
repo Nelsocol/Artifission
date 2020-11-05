@@ -42,9 +42,6 @@ public class AttractionEffectScript : MonoBehaviour, ISpellEffect
         noiseSettings.strengthMultiplier *= noiseModifier;
         noiseSettings.frequency *= noiseFrequencyModifier;
 
-        ParticleSystem.SizeOverLifetimeModule sizeOverLifetime = system.sizeOverLifetime;
-        sizeOverLifetime.size = particleSizeOverLifetime;
-
         ParticleSystem.LimitVelocityOverLifetimeModule damping = system.limitVelocityOverLifetime;
         damping.enabled = true;
         damping.limit = dampingThresholdOverride;

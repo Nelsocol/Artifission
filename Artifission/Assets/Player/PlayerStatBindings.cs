@@ -68,11 +68,13 @@ public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
         deathHandler.Kill();
     }
 
-    public void ApplyStatus(GameObject statusEffect)
+    public void ApplyStatus(GameObject statusEffect, float powerMultiplier = 1, float duration = 5)
     {
+        IStatusEffect newStatus;
         if (!GetComponentsInChildren<IStatusEffect>().Any(e => e.GetType() == statusEffect.GetComponent<IStatusEffect>().GetType()))
         {
-            Instantiate(statusEffect, thisTransform);
+            newStatus = Instantiate(statusEffect, thisTransform).GetComponent<IStatusEffect>();
+            newStatus.SetParameters(powerMultiplier, duration);
         }
         else
         {

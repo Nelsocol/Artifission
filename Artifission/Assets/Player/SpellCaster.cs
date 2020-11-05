@@ -30,14 +30,13 @@ public class SpellCaster : MonoBehaviour
 
     public void Update()
     {
-        if (spellNodes.Where(e => e.casting).Count() == 0 && playerBindings.inMenus == false)
+        if (spellNodes.Where(e => e.occupyingCaster).Count() == 0 && playerBindings.inMenus == false)
         {
             foreach (ButtonControl input in inputList)
             {
                 int index = inputList.IndexOf(input);
                 if (input.IsPressed() && playerBindings.currentMana > spellNodes[index].manaCost)
                 {
-                    playerBindings.DepleteMana(spellNodes[index].manaCost);
                     spellNodes[index].CastSpell();
                 }
             }

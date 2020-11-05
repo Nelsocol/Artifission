@@ -10,7 +10,6 @@ public class CameraShakeBindings : MonoBehaviour
 
     private float shakeAmount = 0;
     private float elapsedTime = 0;
-    private Vector3 originalPosition;
     private bool outOfPosition;
 
     void Start()
@@ -29,14 +28,14 @@ public class CameraShakeBindings : MonoBehaviour
             }
             else
             {
-                myTransform.position = originalPosition;
+                myTransform.position = new Vector3(0,0,transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
                 outOfPosition = false;
             }
             elapsedTime -= Time.fixedDeltaTime;
         }
         else if(outOfPosition)
         {
-            myTransform.position = originalPosition;
+            myTransform.position = new Vector3(0, 0, transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
             outOfPosition = false;
             trackingScript.tracking = true;
         }
@@ -50,7 +49,6 @@ public class CameraShakeBindings : MonoBehaviour
     {
         if (!outOfPosition)
         {
-            originalPosition = myTransform.position;
             shakeAmount = amount;
             elapsedTime = timeSpan;
             outOfPosition = true;

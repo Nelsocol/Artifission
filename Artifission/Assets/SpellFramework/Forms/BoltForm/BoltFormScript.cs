@@ -12,6 +12,10 @@ public class BoltFormScript : MonoBehaviour, ISpellForm
     {
     }
 
+    public void InitializeSpell(ISpellEffect spellEffect, Transform casterTransform)
+    {
+    }
+
     public bool IsContinuous()
     {
         return false;
@@ -34,5 +38,10 @@ public class BoltFormScript : MonoBehaviour, ISpellForm
         {
             spellEffect.ApplyLightEffectors(light);
         }
+    }
+
+    public bool WindUp()
+    {
+        return true;
     }
 }

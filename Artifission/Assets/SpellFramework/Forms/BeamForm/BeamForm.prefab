@@ -77,4 +77,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaCostComponent: 0
   recoveryTimeComponent: 0.5
-  manaPerSecond: 10
+  manaPerSecond: 20

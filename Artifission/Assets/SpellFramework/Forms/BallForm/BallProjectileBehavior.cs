@@ -47,6 +47,12 @@ public class BallProjectileBehavior : MonoBehaviour
                         effectScript.SpecialOnHitAction(potentialTarget.gameObject, hitData);
                     }
                 }
+
+                PropScript propBindings;
+                if(potentialTarget.TryGetComponent(out propBindings))
+                {
+                    propBindings.ReceiveImpact(transform.position, 5);
+                }
             }
 
             foreach (ParticleSystem particleSystem in projectileParticles.GetComponents<ParticleSystem>())

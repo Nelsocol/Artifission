@@ -12,6 +12,10 @@ public class InfusionFormScript : MonoBehaviour, ISpellForm
     {
     }
 
+    public void InitializeSpell(ISpellEffect spellEffect, Transform casterTransform)
+    {
+    }
+
     public bool IsContinuous()
     {
         return false;
@@ -19,6 +23,11 @@ public class InfusionFormScript : MonoBehaviour, ISpellForm
 
     public void Trigger(ISpellEffect spellEffect, Transform casterTransform, UnifiedHitData hitData)
     {
-        casterTransform.GetComponentInParent<PlayerStatBindings>().ApplyStatus(spellEffect.RetrievePositiveEffect());
+        casterTransform.GetComponentInParent<PlayerStatBindings>().ApplyStatus(spellEffect.RetrievePositiveEffect(), 1.5f, 5f);
+    }
+
+    public bool WindUp()
+    {
+        return true;
     }
 }

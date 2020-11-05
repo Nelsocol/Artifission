@@ -7,8 +7,16 @@ using UnityEngine.InputSystem;
 public class OrbitalScript : MonoBehaviour, ISpellForm
 {
     public GameObject beamObject;
+    public GameObject targetObject;
     public float explosionRadius;
     public LayerMask layerMask;
+    public float targetTime;
+
+    private Vector2 mousePosition;
+    private RaycastHit2D landingPoint;
+    private RaycastHit2D hitPoint;
+    private ParticleSystem targetParticles;
+    private float elapsedTargetTime;
 
     private void Start()
     {
@@ -25,12 +33,10 @@ public class OrbitalScript : MonoBehaviour, ISpellForm
 
     public void Trigger(ISpellEffect spellEffect, Transform casterTransform, UnifiedHitData hitData)
     {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        RaycastHit2D landingPoint = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.down, 40, ~layerMask);
-        RaycastHit2D hitPoint = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), casterTransform.position - Camera.main.ScreenToWorldPoint(mousePosition), 40, ~layerMask);
         if (landingPoint && hitPoint && hitPoint.collider.tag != "Ground")
         {
-            Camera.main.GetComponent<CameraShakeBindings>().AddTremor(0.3f, 0.2f);
+            targetParticles.Stop();
+            Camera.main.GetComponent<CameraShakeBindings>().AddTremor(0.5f, 0.2f);
             GameObject beam = Instantiate(beamObject, landingPoint.point, Quaternion.identity);
             foreach (ParticleSystem particleSystem in beam.GetComponentsInChildren<ParticleSystem>())
             {
@@ -50,6 +56,15 @@ public class OrbitalScript : MonoBehaviour, ISpellForm
                     handledEnemies.Add(body.gameObject);
                 }
             }
+
+            foreach(Collider2D body in nearbyBodies)
+            {
+                PropScript propScript;
+                if (body.TryGetComponent(out propScript))
+                {
+                    propScript.ReceiveImpact(landingPoint.point, 7);
+                }
+            }
             RaycastHit2D[] enemiesInBeam = new RaycastHit2D[20];
             Physics2D.RaycastNonAlloc(landingPoint.point, Vector2.up, enemiesInBeam, 60);
             foreach (RaycastHit2D hit in enemiesInBeam.Where(e => e && !(handledEnemies.Contains(e.collider.gameObject)) && e.collider.gameObject.TryGetComponent(out enemyBindings)))
@@ -59,5 +74,26 @@ public class OrbitalScript : MonoBehaviour, ISpellForm
                 handledEnemies.Add(hit.collider.gameObject);
             }
         }
+    }
+
+    public void InitializeSpell(ISpellEffect spellEffect, Transform casterTransform)
+    {
+        mousePosition = Mouse.current.position.ReadValue();
+        landingPoint = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.down, 40, ~layerMask);
+        hitPoint = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), casterTransform.position - Camera.main.ScreenToWorldPoint(mousePosition), 40, ~layerMask);
+
+        if (landingPoint && hitPoint && hitPoint.collider.tag != "Ground")
+        {
+            targetParticles = Instantiate(targetObject, landingPoint.point, Quaternion.identity).GetComponent<ParticleSystem>();
+            spellEffect.ApplyParticleSystemEffectors(targetParticles);
+            targetParticles.Play();
+        }
+        elapsedTargetTime = 0;
+    }
+
+    public bool WindUp()
+    {
+        elapsedTargetTime += Time.deltaTime;
+        return (elapsedTargetTime > targetTime);
     }
 }

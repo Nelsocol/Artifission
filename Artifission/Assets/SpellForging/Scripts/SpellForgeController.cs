@@ -18,7 +18,7 @@ public class SpellForgeController : MonoBehaviour
             Destroy(tile.gameObject);
         }
 
-        float currentHeight = 4;
+        float currentHeight = 4.5f;
 
         foreach(RuneRecord rune in playerBindings.GetComponentInChildren<PlayerRuneList>().runeCollection.Where(e => e.unlocked))
         {

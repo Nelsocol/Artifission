@@ -23,6 +23,10 @@ public class BeamFormScript : MonoBehaviour, ISpellForm
         }
     }
 
+    public void InitializeSpell(ISpellEffect spellEffect, Transform casterTransform)
+    {
+    }
+
     public bool IsContinuous()
     {
         return true;
@@ -41,5 +45,10 @@ public class BeamFormScript : MonoBehaviour, ISpellForm
         {
             spellEffect.ApplyParticleSystemEffectors(particleSystem);
         }
+    }
+
+    public bool WindUp()
+    {
+        return true;
     }
 }

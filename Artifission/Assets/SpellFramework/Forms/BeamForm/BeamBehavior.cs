@@ -16,6 +16,7 @@ public class BeamBehavior : MonoBehaviour
     public UnifiedHitData hitData;
     public float ancillaryTriggerInterval;
     public ISpellEffect spellEffect;
+    public LayerMask layerMask;
 
     private float timeElapsed = 0;
     private float triggerTimeElapsed;
@@ -32,12 +33,7 @@ public class BeamBehavior : MonoBehaviour
     {
         coreReference.SetPosition(0, storedPlayerTransform.position);
 
-        RaycastHit2D directionalCast = Physics2D.Raycast(storedPlayerTransform.position, (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - storedPlayerTransform.position));
-
-        while(directionalCast.collider.gameObject.layer == 8)
-        {
-            directionalCast = Physics2D.Raycast(directionalCast.point, (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - storedPlayerTransform.position));
-        }
+        RaycastHit2D directionalCast = Physics2D.Raycast(storedPlayerTransform.position, (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - storedPlayerTransform.position), 50, ~layerMask);
 
         if (directionalCast)
         {

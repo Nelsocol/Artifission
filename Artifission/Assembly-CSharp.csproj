@@ -82,6 +82,7 @@
     <Compile Include="Assets\Enemies\TestBat\TestBatStunnedState.cs" />
     <Compile Include="Assets\Enemies\UnifiedHitData.cs" />
     <Compile Include="Assets\Enemies\UniversalCreatureBindings.cs" />
+    <Compile Include="Assets\Environment\Props\PropScript.cs" />
     <Compile Include="Assets\Player\DeathHandler\PlayerDeathHandler.cs" />
     <Compile Include="Assets\Player\PlayerData\PlayerRuneList.cs" />
     <Compile Include="Assets\Player\PlayerData\PlayerSpellCollection.cs" />
@@ -106,6 +107,8 @@
     <Compile Include="Assets\SpellFramework\Effects\LightningEffect\ArcScript.cs" />
     <Compile Include="Assets\SpellFramework\Effects\LightningEffect\LightningEffectScript.cs" />
     <Compile Include="Assets\SpellFramework\Effects\SimpleEffect\SimpleEffectScript.cs" />
+    <Compile Include="Assets\SpellFramework\Forms\AuraForm\AuraBehaviorScript.cs" />
+    <Compile Include="Assets\SpellFramework\Forms\AuraForm\AuraFormScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BallForm\BallFormScript.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BallForm\BallProjectileBehavior.cs" />
     <Compile Include="Assets\SpellFramework\Forms\BeamForm\BeamBehavior.cs" />

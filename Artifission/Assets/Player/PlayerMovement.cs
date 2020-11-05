@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     #region Exposed Members
     public float walkSpeed;
     public float jumpHeight;
+    public LayerMask layerMask;
     #endregion
 
     #region Private Members
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(thisRigidbody.position + thisCollider.offset, Vector2.down, ((thisCollider.size.y * thisTransform.localScale.y) / 1.8f));
+        RaycastHit2D hit = Physics2D.Raycast(thisRigidbody.position + thisCollider.offset, Vector2.down, ((thisCollider.size.y * thisTransform.localScale.y) / 1.8f), ~layerMask);
         RaycastHit2D leftHit = Physics2D.Raycast(thisRigidbody.position + thisCollider.offset - new Vector2((thisCollider.size.x * thisTransform.localScale.x) / 2, 0), Vector2.down, ((thisCollider.size.y * thisTransform.localScale.y) / 1.8f));
         RaycastHit2D rightHit = Physics2D.Raycast(thisRigidbody.position + thisCollider.offset + new Vector2((thisCollider.size.x * thisTransform.localScale.x) / 2, 0), Vector2.down, ((thisCollider.size.y * thisTransform.localScale.y) / 1.8f));
         return (hit && hit.collider.gameObject.tag == "Ground") || (leftHit && leftHit.collider.gameObject.tag == "Ground") || (rightHit && rightHit.collider.gameObject.tag == "Ground");

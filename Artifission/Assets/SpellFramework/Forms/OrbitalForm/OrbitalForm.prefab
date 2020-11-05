@@ -4803,10 +4803,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beamObject: {fileID: 1251069027353081852, guid: cb7b96a3315626d43aaa089d68716a20,
     type: 3}
+  targetObject: {fileID: 5156688878992006642, guid: b98e566f1f23c2e4780ed34a6273c259,
+    type: 3}
   explosionRadius: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 256
+  targetTime: 1
 --- !u!114 &1866674719192005574
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,8 +8,8 @@ public class MagicInfusionScript : MonoBehaviour, IStatusEffect
     private PlayerStatBindings playerStats = null;
 
     public float manaRegenMultiplier;
-    public float statusTime;
-
+    private float statusTime;
+    private float power;
     private float remainingStatusTime;
 
     private void Start()
@@ -17,7 +17,7 @@ public class MagicInfusionScript : MonoBehaviour, IStatusEffect
         remainingStatusTime = statusTime;
         if (transform.parent.TryGetComponent(out playerStats))
         {
-            playerStats.constantManaRegeneration *= manaRegenMultiplier;
+            playerStats.constantManaRegeneration *= manaRegenMultiplier * power;
         }
     }
 
@@ -34,7 +34,7 @@ public class MagicInfusionScript : MonoBehaviour, IStatusEffect
     {
         if (playerStats != null)
         {
-            playerStats.constantManaRegeneration /= manaRegenMultiplier;
+            playerStats.constantManaRegeneration /= (manaRegenMultiplier * power);
         }
 
         if (!hardRemoval)
@@ -51,6 +51,13 @@ public class MagicInfusionScript : MonoBehaviour, IStatusEffect
 
     public void ResetEffect()
     {
+        remainingStatusTime = statusTime;
+    }
+
+    public void SetParameters(float powerAffector, float duration)
+    {
+        power = powerAffector;
+        statusTime = duration; 
         remainingStatusTime = statusTime;
     }
 }

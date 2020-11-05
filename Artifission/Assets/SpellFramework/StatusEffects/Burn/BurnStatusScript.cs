@@ -11,11 +11,12 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
     public ParticleSystem deathParticles;
 
     public float tickRate;
-    public float statusTime;
+    private float statusTime;
 
     private float elapsedTime = 0;
     private bool removed = false;
     private float remainingStatusTime;
+    private float power;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
         {
             if (elapsedTime > tickRate)
             {
-                enemyBindings.TakeHit(tickHit, 1);
+                enemyBindings.TakeHit(tickHit, power);
                 elapsedTime = 0;
             }
             elapsedTime += Time.fixedDeltaTime;
@@ -75,6 +76,13 @@ public class BurnStatusScript : MonoBehaviour, IStatusEffect
 
     public void ResetEffect()
     {
+        remainingStatusTime = statusTime;
+    }
+
+    public void SetParameters(float powerAffector, float duration)
+    {
+        power = powerAffector;
+        statusTime = duration;
         remainingStatusTime = statusTime;
     }
 }

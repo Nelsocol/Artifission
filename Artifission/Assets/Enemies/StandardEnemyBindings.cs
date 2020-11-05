@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
@@ -85,9 +86,18 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
         Destroy(gameObject);
     }
 
-    public virtual void ApplyStatus(GameObject statusEffect)
+    public virtual void ApplyStatus(GameObject statusEffect, float powerMultiplier = 1, float duration = 5)
     {
-        Instantiate(statusEffect, thisTransform);
+        IStatusEffect newStatus;
+        if (!GetComponentsInChildren<IStatusEffect>().Any(e => e.GetType() == statusEffect.GetComponent<IStatusEffect>().GetType()))
+        {
+            newStatus = Instantiate(statusEffect, thisTransform).GetComponent<IStatusEffect>();
+            newStatus.SetParameters(powerMultiplier, duration);
+        }
+        else
+        {
+            GetComponentsInChildren<IStatusEffect>().First(e => e.GetType() == statusEffect.GetComponent<IStatusEffect>().GetType()).ResetEffect();
+        }
     }
 
     public virtual float GetParticleEffectScalar()
