@@ -19,9 +19,13 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
 
     public virtual void ReceiveImpact(UnifiedHitData hitData)
     {
-        if(hitData.baseImpact > weight)
-        {
+        if(hitData.baseImpact > 2 * weight)
+        { 
             thisBrain.SendMessage(StateMessages.Stunned);
+        }
+        else if (hitData.baseImpact > weight)
+        {
+            thisBrain.SendMessage(StateMessages.Staggered);
         }
     }
 
@@ -54,6 +58,8 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
                 ApplyStatus(statusEffect);
             }
         }
+
+        thisBrain.SendMessage(StateMessages.Hit);
         return false;
     }
 

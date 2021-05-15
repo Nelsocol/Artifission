@@ -32,7 +32,6 @@ public class AuraBehaviorScript : MonoBehaviour
                     potentialEnemy.TakeHit(hitData, 1);
                     spellEffect.SpecialOnHitAction(potentialEnemy.gameObject, hitData);
                 }  
-
             }
             onHitTimeElapsed = 0;
         }

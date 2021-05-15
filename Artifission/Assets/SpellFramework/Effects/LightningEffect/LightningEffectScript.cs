@@ -68,6 +68,12 @@ public class LightningEffectScript : MonoBehaviour, ISpellEffect
         collisionSettings.bounceMultiplier *= bounceMultiplier;
         collisionSettings.dampenMultiplier *= dampenMultiplier;
     }
+
+    public List<ISpellInteractionType> RetrieveInteractionData()
+    {
+        return new List<ISpellInteractionType>();
+    }
+
     public GameObject RetrievePositiveEffect()
     {
         return infusionStatus;
@@ -75,13 +81,12 @@ public class LightningEffectScript : MonoBehaviour, ISpellEffect
 
     public void SpecialOnHitAction(GameObject hitTarget, UnifiedHitData originalHitData)
     {
-        StandardEnemyBindings checkCache;
+        UniversalCreatureBindings checkCache;
         Collider2D[] ancillaryTargets = Physics2D.OverlapCircleAll(hitTarget.transform.position, shockRadius);
-        Collider2D[] filteredTargets = ancillaryTargets.Where(e => e.gameObject != hitTarget && e.TryGetComponent(out checkCache)).ToArray();
+        Collider2D[] filteredTargets = ancillaryTargets.Where(e => e.gameObject != hitTarget && e.TryGetComponent(out checkCache) && !(checkCache is PlayerStatBindings)).ToArray();
         if(!(filteredTargets.Length == 0))
         {
-
-            filteredTargets[0].gameObject.GetComponent<StandardEnemyBindings>().TakeHit(originalHitData, 0.5f);
+            filteredTargets[0].gameObject.GetComponent<UniversalCreatureBindings>().TakeHit(originalHitData, 0.5f);
             ArcScript arcScript = Instantiate(arcObject).GetComponent<ArcScript>();
             arcScript.Arc(hitTarget.transform.position, filteredTargets[0].transform.position);
         }

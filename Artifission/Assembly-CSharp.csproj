@@ -69,17 +69,66 @@
     <Compile Include="Assets\Enemies\AIFramework\CreatureBrainCore.cs" />
     <Compile Include="Assets\Enemies\AIFramework\ICreatureState.cs" />
     <Compile Include="Assets\Enemies\AIFramework\StateContext.cs" />
+    <Compile Include="Assets\Enemies\Bat\Behaviours\BatAttackState.cs" />
+    <Compile Include="Assets\Enemies\Bat\Behaviours\BatFlockState.cs" />
+    <Compile Include="Assets\Enemies\Bat\Behaviours\BatPassiveFlightBehaviours.cs" />
+    <Compile Include="Assets\Enemies\Bat\Behaviours\BatRetreatState.cs" />
+    <Compile Include="Assets\Enemies\Bat\Behaviours\BatSleepState.cs" />
+    <Compile Include="Assets\Enemies\BombGoblin\Behaviours\BombGoblinIdleState.cs" />
+    <Compile Include="Assets\Enemies\BombGoblin\Behaviours\BombGoblinJumpState.cs" />
+    <Compile Include="Assets\Enemies\BombGoblin\Behaviours\BombGoblinPositionState.cs" />
+    <Compile Include="Assets\Enemies\BombGoblin\Behaviours\BombGoblinSprayState.cs" />
+    <Compile Include="Assets\Enemies\BombGoblin\Behaviours\BombGoblinStaggerState.cs" />
+    <Compile Include="Assets\Enemies\BombGoblin\Behaviours\BombGoblinThrowState.cs" />
+    <Compile Include="Assets\Enemies\ControlPointBindings.cs" />
+    <Compile Include="Assets\Enemies\DestructableProjectileBindings.cs" />
     <Compile Include="Assets\Enemies\Director\EnemyClusterScript.cs" />
     <Compile Include="Assets\Enemies\Director\EnemyDirectorScript.cs" />
     <Compile Include="Assets\Enemies\Director\EnemyNodeScript.cs" />
+    <Compile Include="Assets\Enemies\GeneralEnemyResources\FacePlayer.cs" />
     <Compile Include="Assets\Enemies\GeneralEnemyResources\HealthBar\EnemyHealthBarScript.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinBindings.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinFallingState.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinIdleState.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinPositionState.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinStaggeredScript.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinStrikeState.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinStunnedState.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\Behaviours\SpearGoblinThrowState.cs" />
+    <Compile Include="Assets\Enemies\SpearGoblin\SpearProjectileScript.cs" />
     <Compile Include="Assets\Enemies\StandardEnemyBindings.cs" />
-    <Compile Include="Assets\Enemies\TestBat\TestBatAttackScript.cs" />
-    <Compile Include="Assets\Enemies\TestBat\TestBatBindings.cs" />
-    <Compile Include="Assets\Enemies\TestBat\TestBatChargingState.cs" />
-    <Compile Include="Assets\Enemies\TestBat\TestBatRetreatState.cs" />
-    <Compile Include="Assets\Enemies\TestBat\TestBatStillState.cs" />
-    <Compile Include="Assets\Enemies\TestBat\TestBatStunnedState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinBehaviors\StormPaladinCenteredState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinBehaviors\StormPaladinEdgeState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinBehaviors\StormPaladinIdleState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinBehaviors\StormPaladinOutOfPositionState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinBehaviors\StormPaladinSlashState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinBehaviors\StormPaladinTeleportState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinBehaviors\StormPaladinTraverseState.cs" />
+    <Compile Include="Assets\Enemies\StormPaladin\StormPaladinTeleportDamageScript.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinBindings.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinChargeState.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinFallingState.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinIdleState.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinPositionState.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinStaggeredScript.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinStrikeState.cs" />
+    <Compile Include="Assets\Enemies\SwordGoblin\Behaviours\SwordGoblinStunnedState.cs" />
+    <Compile Include="Assets\Enemies\TemplateEnemy\ContactDamageScript.cs" />
+    <Compile Include="Assets\Enemies\TemplateEnemy\TestBatBindings.cs" />
+    <Compile Include="Assets\Enemies\TemplateEnemy\TestBatChargingState.cs" />
+    <Compile Include="Assets\Enemies\TemplateEnemy\TestBatRetreatState.cs" />
+    <Compile Include="Assets\Enemies\TemplateEnemy\TestBatStillState.cs" />
+    <Compile Include="Assets\Enemies\TemplateEnemy\TestBatStunnedState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollAlertState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollIdleState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollLeapState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollPunchComboState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollSlamState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollStaggerState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollThrowState.cs" />
+    <Compile Include="Assets\Enemies\Troll\Behaviours\TrollWalkState.cs" />
+    <Compile Include="Assets\Enemies\Troll\RockBehaviour.cs" />
     <Compile Include="Assets\Enemies\UnifiedHitData.cs" />
     <Compile Include="Assets\Enemies\UniversalCreatureBindings.cs" />
     <Compile Include="Assets\Environment\Props\PropScript.cs" />
@@ -92,6 +141,14 @@
     <Compile Include="Assets\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Player\PlayerStatBindings.cs" />
     <Compile Include="Assets\Player\SpellCaster.cs" />
+    <Compile Include="Assets\Puzzles\Boxes\HeavyBoxScript.cs" />
+    <Compile Include="Assets\Puzzles\Boxes\LightBoxScript.cs" />
+    <Compile Include="Assets\Puzzles\SpellInteractions\BurnInteraction.cs" />
+    <Compile Include="Assets\Puzzles\SpellInteractions\ForceInteraction.cs" />
+    <Compile Include="Assets\Puzzles\SpellInteractions\ISpellInteractionType.cs" />
+    <Compile Include="Assets\Puzzles\SpellInteractions\SpellInteractionBindings.cs" />
+    <Compile Include="Assets\Puzzles\Torches\TorchControllerScript.cs" />
+    <Compile Include="Assets\Puzzles\Torches\TorchScript.cs" />
     <Compile Include="Assets\SpellForging\Scripts\ForgeButtonScript.cs" />
     <Compile Include="Assets\SpellForging\Scripts\SlotScript.cs" />
     <Compile Include="Assets\SpellForging\Scripts\SpellForgeController.cs" />
@@ -130,6 +187,8 @@
     <Compile Include="Assets\SpellFramework\StatusEffects\IStatusEffect.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\LightningInfusion\LightningStatusScript.cs" />
     <Compile Include="Assets\SpellFramework\StatusEffects\MagicInfusion\MagicInfusionScript.cs" />
+    <Compile Include="Assets\TestingUtilities\ConfirmationScript.cs" />
+    <Compile Include="Assets\TestingUtilities\VisibleGizmo.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -659,121 +718,121 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualEffectGraph.Runtime">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualEffectGraph.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/colli/Documents/Artifission/Artifission/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/colli/OneDrive/Documents/Artifission/Artifission/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

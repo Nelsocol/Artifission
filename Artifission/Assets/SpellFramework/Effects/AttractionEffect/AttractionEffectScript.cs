@@ -48,6 +48,14 @@ public class AttractionEffectScript : MonoBehaviour, ISpellEffect
         damping.dampen = dampingStrengthOverride;
     }
 
+    public List<ISpellInteractionType> RetrieveInteractionData()
+    {
+        return new List<ISpellInteractionType>()
+        {
+            new ForceInteraction() { mForceStrength = -1 }
+        };
+    }
+
     public GameObject RetrievePositiveEffect()
     {
         return infusionStatus;

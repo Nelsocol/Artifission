@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICreatureState
 {
-    void ExecuteState(StateContext context);
-    bool QueryValidity(StateContext context, StateMessages message = StateMessages.None);
+    void ExecuteState(StateContext context, List<StateMessages> messages);
+    bool QueryValidity(StateContext context, List<StateMessages> messages);
     void InitateState(StateContext context);
 }

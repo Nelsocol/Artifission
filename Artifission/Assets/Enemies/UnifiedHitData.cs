@@ -9,4 +9,5 @@ public class UnifiedHitData: MonoBehaviour
     public Vector2 hitSource;
     public float statusChance;
     public List<GameObject> statusEffects = new List<GameObject>();
+    public List<ISpellInteractionType> hitInteractions;
 }

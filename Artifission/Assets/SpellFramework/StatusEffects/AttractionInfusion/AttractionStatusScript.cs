@@ -14,6 +14,11 @@ public class AttractionStatusScript : MonoBehaviour, IStatusEffect
     private void Start()
     {
         playerStats = transform.parent;
+        foreach (ParticleSystem particleSystem in GetComponentsInChildren<ParticleSystem>())
+        {
+            ParticleSystem.ShapeModule shape = particleSystem.shape;
+            shape.radius *= powerAffector;
+        }
     }
 
     private void FixedUpdate()
@@ -31,6 +36,11 @@ public class AttractionStatusScript : MonoBehaviour, IStatusEffect
                     physicsBody.velocity *= 0.2f;
                 }
             }
+        }
+
+        if(remainingStatusTime < 0)
+        {
+            RemoveEffect(false, false);
         }
         remainingStatusTime -= Time.fixedDeltaTime;
     }

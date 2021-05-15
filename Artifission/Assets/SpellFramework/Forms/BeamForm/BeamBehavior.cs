@@ -38,6 +38,7 @@ public class BeamBehavior : MonoBehaviour
         if (directionalCast)
         {
             coreReference.SetPosition(1, directionalCast.point);
+            RaycastHit2D[] secondaryCast = Physics2D.RaycastAll(storedPlayerTransform.position, (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - storedPlayerTransform.position), (directionalCast.point - (Vector2)storedPlayerTransform.position).magnitude * 1.1f);
 
             StandardEnemyBindings potentialEnemyBindings;
             if(timeElapsed > hitInterval && directionalCast.transform.gameObject.TryGetComponent(out potentialEnemyBindings))
@@ -52,7 +53,20 @@ public class BeamBehavior : MonoBehaviour
             {
                 spellEffect.SpecialOnTriggerAction(coreReference.GetPosition(1));
                 triggerTimeElapsed = 0;
+                
+            foreach (RaycastHit2D hit in secondaryCast)
+            {
+                SpellInteractionBindings interactionBindings;
+                if(hit.collider.TryGetComponent(out interactionBindings))
+                {
+                    foreach (ISpellInteractionType interaction in hitData.hitInteractions)
+                    {
+                        interactionBindings.RaiseInteractionEvent(interaction, storedPlayerTransform.position);
+                    }
+                }
             }
+            }
+
         }
 
         ParticleSystem.ShapeModule beamShape = beamParticles.shape;

@@ -4808,7 +4808,7 @@ MonoBehaviour:
   explosionRadius: 5
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2848
   targetTime: 1
 --- !u!114 &1866674719192005574
 MonoBehaviour:
@@ -4823,7 +4823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 10
-  baseImpact: 0
+  baseImpact: 3
   baseStatusChance: 0.8
   hitSource: {x: 0, y: 0}
 --- !u!114 &1059021765314402003

@@ -36,6 +36,11 @@ public class FlightEffectScript : MonoBehaviour, ISpellEffect
         noiseSettings.strengthMultiplier *= noiseModifier;
     }
 
+    public List<ISpellInteractionType> RetrieveInteractionData()
+    {
+        return new List<ISpellInteractionType>();
+    }
+
     public GameObject RetrievePositiveEffect()
     {
         return infusionStatus;

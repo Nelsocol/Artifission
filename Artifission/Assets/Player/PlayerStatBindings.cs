@@ -6,6 +6,9 @@ public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
     private Transform thisTransform;
     private SpellCaster casterScript;
     private PlayerDeathHandler deathHandler;
+    private Rigidbody2D thisRigidbody;
+
+    public CameraShakeBindings cameraShakeBindings;
 
     public float maxMana;
     public float constantManaRegeneration;
@@ -14,12 +17,25 @@ public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
     public float maxHealth;
     private float currentHealth;
     public bool inMenus;
+    public float iFrameDuration;
+
+    public bool stunned 
+    {
+        get
+        {
+            return stunDuration > 0;
+        }
+    }
+
+    private float stunDuration;
+    private float iFrameTimer;
 
     void Start()
     {
         thisTransform = GetComponent<Transform>();
         casterScript = GetComponent<SpellCaster>();
         deathHandler = GetComponent<PlayerDeathHandler>();
+        thisRigidbody = GetComponent<Rigidbody2D>();
 
         currentMana = maxMana;
         currentHealth = maxHealth;
@@ -28,6 +44,9 @@ public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
     void Update()
     {
         currentMana = Mathf.Clamp(currentMana + (constantManaRegeneration*Time.deltaTime), 0, maxMana);
+
+        stunDuration = stunDuration >= 0 ? stunDuration - Time.deltaTime : 0;
+        iFrameTimer = iFrameTimer >= 0 ? iFrameTimer - Time.deltaTime : 0;
     }
 
     public void DepleteMana(float depletionAmount)
@@ -37,30 +56,38 @@ public class PlayerStatBindings : MonoBehaviour, UniversalCreatureBindings
 
     public bool TakeHit(UnifiedHitData hitData, float hitScalar)
     {
-        currentHealth = Mathf.Clamp(currentHealth - hitData.baseDamage, 0, maxHealth);
-
-        if (currentHealth <= 0)
+        if (iFrameTimer <= 0)
         {
-            Kill();
-            return true;
-        }
+            cameraShakeBindings.AddTremor(0.1f, 0.1f);
+            currentHealth = Mathf.Clamp(currentHealth - hitData.baseDamage, 0, maxHealth);
 
-        ReceiveImpact(hitData);
-
-        foreach (GameObject statusEffect in hitData.statusEffects)
-        {
-            float statusRoll = (Random.Range(0, 100) / 100f);
-            if (statusRoll < hitData.statusChance)
+            if (currentHealth <= 0)
             {
-                ApplyStatus(statusEffect);
+                Kill();
+                return true;
             }
+
+            ReceiveImpact(hitData);
+
+            foreach (GameObject statusEffect in hitData.statusEffects)
+            {
+                float statusRoll = (Random.Range(0, 100) / 100f);
+                if (statusRoll < hitData.statusChance)
+                {
+                    ApplyStatus(statusEffect);
+                }
+            }
+
+            iFrameTimer = iFrameDuration;
         }
         return false;
     }
 
     public void ReceiveImpact(UnifiedHitData hitData)
     {
-        
+        thisRigidbody.velocity *= 0.1f;
+        thisRigidbody.AddForce(((Vector2)transform.position - hitData.hitSource).normalized * hitData.baseImpact, ForceMode2D.Impulse);
+        stunDuration = 0.05f * hitData.baseImpact;
     }
 
     public void Kill()

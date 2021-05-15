@@ -36,6 +36,19 @@ public class EnemyClusterScript : MonoBehaviour
         }
     }
 
+    public void PropogateMessage(StateMessages message)
+    {
+        foreach (EnemyNodeScript node in childNodes)
+        {
+            node.SendMesasgeToCreature(message);
+        }
+    }
+
+    public List<GameObject> GetAllLivingCreatures()
+    {
+        return childNodes.Select(e => e.GetCreature()).Where(e => e != null).ToList();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")

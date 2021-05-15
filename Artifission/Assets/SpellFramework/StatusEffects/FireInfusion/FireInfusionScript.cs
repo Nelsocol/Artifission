@@ -18,7 +18,7 @@ public class FireInfusionScript : MonoBehaviour, IStatusEffect
         remainingStatusTime = statusTime;
         if (transform.parent.TryGetComponent(out playerStats))
         {
-            playerStats.walkSpeed *= (speedMultiplier * power);
+            playerStats.walkSpeed += (speedMultiplier * power);
         }
     }
 
@@ -35,7 +35,7 @@ public class FireInfusionScript : MonoBehaviour, IStatusEffect
     {
         if (playerStats != null)
         {
-            playerStats.walkSpeed /= (speedMultiplier * power);
+            playerStats.walkSpeed -= (speedMultiplier * power);
         }
 
         if (!hardRemoval)

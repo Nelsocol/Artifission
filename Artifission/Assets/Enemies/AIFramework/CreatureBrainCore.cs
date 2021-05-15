@@ -8,7 +8,12 @@ public enum StateMessages
 {
     None,
     Death,
-    Stunned
+    Stunned,
+    Staggered,
+    Hit,
+    PlayerDetected,
+    HitPlayer,
+    Retreat
 }
 
 public class CreatureBrainCore : MonoBehaviour
@@ -20,6 +25,7 @@ public class CreatureBrainCore : MonoBehaviour
     private ICreatureState mDefaultState;
     private ICreatureState[] mOverrideStates;
     private ICreatureState currentState;
+    private List<StateMessages> queuedMessages = new List<StateMessages>();
 
     private void Start()
     {
@@ -27,21 +33,24 @@ public class CreatureBrainCore : MonoBehaviour
         mOverrideStates = overrideActions.Select(e => e as ICreatureState).ToArray();
         currentState = mDefaultState;
         contextObject = GetComponent<StateContext>();
+        mDefaultState.InitateState(contextObject);
     }
 
     private void Update()
     {
         contextObject.UpdateContext();
-        currentState.ExecuteState(contextObject);
+        currentState.ExecuteState(contextObject, queuedMessages);
 
         foreach(ICreatureState state in mOverrideStates)
         {
-            if(state.QueryValidity(contextObject))
+            if(state.QueryValidity(contextObject, queuedMessages))
             {
                 ChangeState(state);
                 break;
             }
         }
+
+        queuedMessages = new List<StateMessages>();
     }
 
     public void ChangeState(ICreatureState newState)
@@ -52,15 +61,6 @@ public class CreatureBrainCore : MonoBehaviour
 
     public void SendMessage(StateMessages message)
     {
-        contextObject.UpdateContext();
-
-        foreach(ICreatureState state in mOverrideStates)
-        {
-            if(state.QueryValidity(contextObject, message))
-            {
-                ChangeState(state);
-                break;
-            }
-        }
+        queuedMessages.Add(message);
     }
 }

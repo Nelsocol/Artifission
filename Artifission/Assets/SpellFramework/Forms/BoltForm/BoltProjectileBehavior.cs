@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -48,7 +49,7 @@ public class BoltProjectileBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Player" && collision.gameObject.layer != 8)
+        if (collision.gameObject.tag != "Player" && collision.gameObject.layer != 8 && collision.gameObject.layer != 11)
         {
             effectScript.SpecialOnTriggerAction(transform.position);
 
@@ -84,6 +85,15 @@ public class BoltProjectileBehavior : MonoBehaviour
             else
             {
                 stalledTimeRemaining = pauseTimeOnHit;
+            }
+        }
+
+        SpellInteractionBindings interactionBindings;
+        if (collision.gameObject.TryGetComponent<SpellInteractionBindings>(out interactionBindings))
+        {
+            foreach(ISpellInteractionType interaction in hitData.hitInteractions)
+            {
+                interactionBindings.RaiseInteractionEvent(interaction, transform.position);
             }
         }
     }

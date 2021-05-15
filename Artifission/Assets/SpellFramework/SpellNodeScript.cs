@@ -14,6 +14,7 @@ public class SpellNodeScript : MonoBehaviour
     private SpellCostComponents effectCostComponent;
     private SpellCostComponents formCostComponent;
     private PlayerStatBindings playerBindings;
+    private List<ISpellInteractionType> interactionActions;
 
     public GameObject formPrefab;
     public GameObject effectObject;
@@ -99,9 +100,11 @@ public class SpellNodeScript : MonoBehaviour
             returnData.statusEffects.Add(statusEffect);
         }
 
+        returnData.hitInteractions = spellEffectScript.RetrieveInteractionData();
+
         return returnData;
     }
-
+    
     public void Initialize()
     {
         thisTransform = GetComponent<Transform>();

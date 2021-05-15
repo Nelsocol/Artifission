@@ -8,11 +8,14 @@ public class StateContext : MonoBehaviour
     public GameObject creatureReference;
     public StandardEnemyBindings creatureBindings;
     public CreatureBrainCore brainReference;
+    public EnemyClusterScript clusterReference;
+    public Animator creatureAnimator;
 
     private void Start()
     {
         creatureReference = transform.parent.gameObject;
         creatureBindings = creatureReference.GetComponent<StandardEnemyBindings>();
+        clusterReference = creatureReference.transform.parent.GetComponentInParent<EnemyClusterScript>();
 
         EnemyDirectorScript directorScript;
         Transform enemyDirector = transform.parent;
@@ -23,6 +26,7 @@ public class StateContext : MonoBehaviour
 
         playerReference = directorScript.playerReference;
         brainReference = GetComponent<CreatureBrainCore>();
+        creatureAnimator = creatureReference.GetComponentInChildren<Animator>();
     }
 
     public void UpdateContext()

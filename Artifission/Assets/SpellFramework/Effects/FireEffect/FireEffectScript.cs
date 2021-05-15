@@ -30,6 +30,14 @@ public class FireEffectScript : MonoBehaviour, ISpellEffect
         noiseSettings.strengthMultiplier *= noiseModifier;
     }
 
+    public List<ISpellInteractionType> RetrieveInteractionData()
+    {
+        return new List<ISpellInteractionType>()
+        {
+            new BurnInteraction()
+        };
+    }
+
     public GameObject RetrievePositiveEffect()
     {
         return infusionStatus;

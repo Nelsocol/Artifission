@@ -29,7 +29,7 @@ public class BallProjectileBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != "Player" && collision.gameObject.layer != 8)
+        if(collision.gameObject.tag != "Player" && collision.gameObject.layer != 8 && collision.gameObject.layer != 11)
         {
             effectScript.SpecialOnTriggerAction(transform.position);
             List<GameObject> handledEnemies = new List<GameObject>();
@@ -52,6 +52,15 @@ public class BallProjectileBehavior : MonoBehaviour
                 if(potentialTarget.TryGetComponent(out propBindings))
                 {
                     propBindings.ReceiveImpact(transform.position, 5);
+                }
+
+                SpellInteractionBindings interactionBindings;
+                if (potentialTarget.TryGetComponent(out interactionBindings))
+                {
+                    foreach(ISpellInteractionType interaction in hitData.hitInteractions)
+                    {
+                        interactionBindings.RaiseInteractionEvent(interaction, transform.position);
+                    }
                 }
             }
 

@@ -10,4 +10,5 @@ public interface ISpellEffect
     void SpecialOnTriggerAction(Vector2 triggerLocation);
     GameObject RetrievePositiveEffect();
     void SpecialOnHitAction(GameObject hitTarget, UnifiedHitData originalHitData);
+    List<ISpellInteractionType> RetrieveInteractionData();
 }

@@ -49,12 +49,12 @@ public class OrbitalScript : MonoBehaviour, ISpellForm
             StandardEnemyBindings enemyBindings = null;
             foreach (Collider2D body in nearbyBodies.Where(e => e.TryGetComponent(out enemyBindings) && !(handledEnemies.Contains(e.gameObject))))
             {
-                if (Physics2D.Raycast(landingPoint.point, ((Vector2)body.gameObject.transform.position - landingPoint.point).normalized).collider.tag != "Ground")
-                {
+                //if (Physics2D.Raycast(landingPoint.point, ((Vector2)body.gameObject.transform.position - landingPoint.point).normalized).collider.tag != "Ground")
+                //{
                     enemyBindings.TakeHit(hitData, 1);
                     spellEffect.SpecialOnHitAction(body.gameObject, hitData);
                     handledEnemies.Add(body.gameObject);
-                }
+                //}
             }
 
             foreach(Collider2D body in nearbyBodies)
@@ -64,7 +64,18 @@ public class OrbitalScript : MonoBehaviour, ISpellForm
                 {
                     propScript.ReceiveImpact(landingPoint.point, 7);
                 }
+
+                SpellInteractionBindings interactionBindings;
+                if (body.TryGetComponent(out interactionBindings))
+                {
+                    foreach (ISpellInteractionType interaction in hitData.hitInteractions)
+                    {
+                        Debug.Log("RaisedEvent");
+                        interactionBindings.RaiseInteractionEvent(interaction, landingPoint.point);
+                    }
+                }    
             }
+
             RaycastHit2D[] enemiesInBeam = new RaycastHit2D[20];
             Physics2D.RaycastNonAlloc(landingPoint.point, Vector2.up, enemiesInBeam, 60);
             foreach (RaycastHit2D hit in enemiesInBeam.Where(e => e && !(handledEnemies.Contains(e.collider.gameObject)) && e.collider.gameObject.TryGetComponent(out enemyBindings)))

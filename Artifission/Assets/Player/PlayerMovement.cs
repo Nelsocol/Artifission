@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (playerBindings.inMenus == false)
+        if (playerBindings.inMenus == false && !playerBindings.stunned)
         {
             ApplyHorizontalMotion();
 

@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad3413751d701f4bb02f3dcdcf5b41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusTime: 5
   stickForce: 20
 --- !u!199 &5700633904720156700
 ParticleSystemRenderer:
@@ -125,7 +124,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0

@@ -160,7 +160,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 2
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff45d110cabb7642b1927e7d8f029ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 20
+  walkSpeed: 15
   jumpHeight: 10
   layerMask:
     serializedVersion: 2
@@ -266,11 +266,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e14e77dd9a59f74490eaf238441fe97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShakeBindings: {fileID: 0}
   maxMana: 50
   constantManaRegeneration: 10
   currentMana: 0
   maxHealth: 100
   inMenus: 0
+  iFrameDuration: 0.5
 --- !u!114 &3626063426048264223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,60 +288,6 @@ MonoBehaviour:
   deathScreen: {fileID: 0}
   enemyDirector: {fileID: 0}
   respawnPosition: {x: 0, y: 0, z: 0}
---- !u!114 &815666874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844957766725052825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e942063770079d438a4c4b17bfe3e19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  runeName: Beam
-  unlocked: 1
-  tileSprite: {fileID: 21300000, guid: 3405dfe86f2700d43a2b28cacbd581e4, type: 3}
-  spellComponent: {fileID: 351574300550973113, guid: 4d04316f778306a4bb6c2d86653652d7,
-    type: 3}
---- !u!114 &1048200509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844957766725052825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e942063770079d438a4c4b17bfe3e19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  runeName: Flight
-  unlocked: 1
-  tileSprite: {fileID: 21300000, guid: 91ba607fa42da9b4bba02e1f0c962f17, type: 3}
-  spellComponent: {fileID: 364707448136028798, guid: cd9f0f9b7cead1643993e11804d8a891,
-    type: 3}
---- !u!114 &1634147552879522020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844957766725052825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e942063770079d438a4c4b17bfe3e19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  runeName: Infusion
-  unlocked: 1
-  tileSprite: {fileID: 21300000, guid: 0d9764e3b0b8d2f4b98b7e7586f6bd7e, type: 3}
-  spellComponent: {fileID: 2350202980019458139, guid: a08b906277ab5314e809efb3c5c1fa90,
-    type: 3}
 --- !u!114 &423918535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +341,60 @@ MonoBehaviour:
   unlocked: 1
   tileSprite: {fileID: 21300000, guid: 317c90612c132c348bcdd934a7378260, type: 3}
   spellComponent: {fileID: 538530091191458309, guid: 96e7e45849dab7c49b50d078991331bf,
+    type: 3}
+--- !u!114 &815666874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844957766725052825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e942063770079d438a4c4b17bfe3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  runeName: Beam
+  unlocked: 1
+  tileSprite: {fileID: 21300000, guid: 3405dfe86f2700d43a2b28cacbd581e4, type: 3}
+  spellComponent: {fileID: 351574300550973113, guid: 4d04316f778306a4bb6c2d86653652d7,
+    type: 3}
+--- !u!114 &1048200509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844957766725052825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e942063770079d438a4c4b17bfe3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  runeName: Flight
+  unlocked: 1
+  tileSprite: {fileID: 21300000, guid: 91ba607fa42da9b4bba02e1f0c962f17, type: 3}
+  spellComponent: {fileID: 364707448136028798, guid: cd9f0f9b7cead1643993e11804d8a891,
+    type: 3}
+--- !u!114 &1634147552879522020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844957766725052825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e942063770079d438a4c4b17bfe3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  runeName: Infusion
+  unlocked: 1
+  tileSprite: {fileID: 21300000, guid: 0d9764e3b0b8d2f4b98b7e7586f6bd7e, type: 3}
+  spellComponent: {fileID: 2350202980019458139, guid: a08b906277ab5314e809efb3c5c1fa90,
     type: 3}
 --- !u!1001 &1099599841170609505
 PrefabInstance:

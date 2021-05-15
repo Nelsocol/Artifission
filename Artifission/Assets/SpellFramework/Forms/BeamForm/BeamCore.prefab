@@ -14319,7 +14319,7 @@ MonoBehaviour:
   ancillaryTriggerInterval: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 800
+    m_Bits: 2848
 --- !u!120 &2489061434123709957
 LineRenderer:
   m_ObjectHideFlags: 0

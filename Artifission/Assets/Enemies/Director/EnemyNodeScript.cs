@@ -76,9 +76,19 @@ public class EnemyNodeScript : MonoBehaviour
         }
     }
 
+    public void SendMesasgeToCreature(StateMessages message)
+    {
+        enemyInstance?.GetComponentInChildren<CreatureBrainCore>()?.SendMessage(message);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(0, 1, 0, 0.8f);
         Gizmos.DrawSphere(transform.position, 0.1f);
+    }
+
+    public GameObject GetCreature()
+    {
+        return enemyInstance;
     }
 }

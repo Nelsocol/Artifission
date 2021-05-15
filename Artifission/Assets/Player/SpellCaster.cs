@@ -12,6 +12,7 @@ public class SpellCaster : MonoBehaviour
     public SpellNodeScript[] spellNodes;
 
     private List<ButtonControl> inputList;
+
     public void Start()
     {
         inputList = new List<ButtonControl>()
@@ -42,12 +43,12 @@ public class SpellCaster : MonoBehaviour
             }
         }
 
-        if(playerBindings.inMenus == false)
+        if (playerBindings.inMenus == false)
         {
             foreach (ButtonControl input in inputList)
             {
                 int index = inputList.IndexOf(input);
-                if (input.wasReleasedThisFrame && spellNodes[index].continuousCast)
+                if ((input.wasReleasedThisFrame || playerBindings.currentMana <= 0) && spellNodes[index].continuousCast)
                 {
                     spellNodes[index].EndCast();
                 }
