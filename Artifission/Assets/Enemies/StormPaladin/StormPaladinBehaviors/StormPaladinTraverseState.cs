@@ -8,7 +8,6 @@ public class StormPaladinTraverseState : MonoBehaviour, ICreatureState
     public float traverseSpeed;
     public float traverseDelay;
     private float traverseTimer;
-    private bool traversing;
     private Transform controlPointSelection;
 
     public ControlPointBindings controlPoints;
@@ -20,19 +19,11 @@ public class StormPaladinTraverseState : MonoBehaviour, ICreatureState
     {
         if (traverseTimer > traverseDelay)
         {
-            traverseTimer = 0;
-
-            controlPointSelection = controlPoints.FarControlPoints(context.creatureReference.transform.position)[Random.Range(0, controlPoints.FarControlPoints(context.creatureReference.transform.position).Count)];
-            traversing = true;
-        }
-        else if (traversing)
-        {
             if (Mathf.Abs(controlPointSelection.position.x - context.creatureReference.transform.position.x) < (traverseSpeed * Time.deltaTime))
             {
                 context.creatureReference.transform.position = new Vector3(controlPointSelection.position.x, context.creatureReference.transform.position.y, context.creatureReference.transform.position.z);
-                traversing = false;
 
-                if (controlPoints.FarControlPoints(context.creatureReference.transform.position).IndexOf(controlPointSelection) == 1)
+                if (controlPoints.ControlPoints().IndexOf(controlPointSelection) == 1)
                 {
                     context.brainReference.ChangeState(outState_Center as ICreatureState);
                 }
@@ -61,6 +52,8 @@ public class StormPaladinTraverseState : MonoBehaviour, ICreatureState
 
     public void InitateState(StateContext context)
     {
+        controlPointSelection = controlPoints.FarControlPoints(context.creatureReference.transform.position)[Random.Range(0, controlPoints.FarControlPoints(context.creatureReference.transform.position).Count)];
+        traverseTimer = 0;
     }
 
     public bool QueryValidity(StateContext context, List<StateMessages> messages)

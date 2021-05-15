@@ -14,7 +14,6 @@ namespace Assets.Enemies.StormPaladin.StormPaladinBehaviors
 
         public MonoBehaviour outState_Teleport;
         public MonoBehaviour outState_Traverse;
-        public MonoBehaviour outState_Slam;
         public MonoBehaviour outState_Slash;
         public MonoBehaviour outState_Bolt;
         public MonoBehaviour outState_Wave;
@@ -31,7 +30,6 @@ namespace Assets.Enemies.StormPaladin.StormPaladinBehaviors
             {
                 outState_Teleport,
                 outState_Traverse,
-                //outState_Slam,
                 //outState_Wave,
             };
 
@@ -44,7 +42,7 @@ namespace Assets.Enemies.StormPaladin.StormPaladinBehaviors
 
                 if (distanceFromPlayer > boltDistance)
                 {
-                    //moveOptions.Add(outState_Bolt);
+                    moveOptions.Add(outState_Bolt);
                 }
 
                 // Randomly pick the next state

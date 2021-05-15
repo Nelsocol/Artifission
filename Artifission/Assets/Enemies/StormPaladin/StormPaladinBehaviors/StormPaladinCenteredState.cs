@@ -8,15 +8,12 @@ public class StormPaladinCenteredState : MonoBehaviour, ICreatureState
     private float newMoveTimer;
 
     public float slashDistance;
-    public float boltDistance;
     public float auraDistance;
 
     public MonoBehaviour outState_Teleport;
     public MonoBehaviour outState_Traverse;
-    public MonoBehaviour outState_Slam;
     public MonoBehaviour outState_SkyStrike;
     public MonoBehaviour outState_Slash;
-    public MonoBehaviour outState_Bolt;
     public MonoBehaviour outState_Aura;
 
 
@@ -31,7 +28,6 @@ public class StormPaladinCenteredState : MonoBehaviour, ICreatureState
             {
                 outState_Teleport,
                 outState_Traverse,
-                //outState_Slam,
                 //outState_SkyStrike,
             };
 
@@ -40,11 +36,6 @@ public class StormPaladinCenteredState : MonoBehaviour, ICreatureState
             if (distanceFromPlayer < slashDistance)
             {
                 moveOptions.Add(outState_Slash);
-            }
-
-            if (distanceFromPlayer > boltDistance)
-            {
-                //moveOptions.Add(outState_Bolt);
             }
 
             if (distanceFromPlayer < auraDistance)

@@ -171,13 +171,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMovePollTime: 3
   slashDistance: 3
-  boltDistance: 0
+  boltDistance: 2
   outState_Teleport: {fileID: 3374141017854556938}
   outState_Traverse: {fileID: 6651739745356360783}
-  outState_Slam: {fileID: 0}
   outState_Slash: {fileID: 204791951883483492}
-  outState_Bolt: {fileID: 0}
+  outState_Bolt: {fileID: 5815761774403936214}
   outState_Wave: {fileID: 0}
+--- !u!114 &5815761774403936214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411744448211907996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f47bec60db31b64eb242f0653ed74b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boltDelay: 0.5
+  boltObject: {fileID: 1164786362463676444, guid: 9a0e3bc8f53a085469297aa672515885,
+    type: 3}
+  outState_Edge: {fileID: 3829592132615743086}
 --- !u!114 &6161397904192009337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,14 +207,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMovePollTime: 3
   slashDistance: 3
-  boltDistance: 0
   auraDistance: 0
   outState_Teleport: {fileID: 3374141017854556938}
   outState_Traverse: {fileID: 6651739745356360783}
-  outState_Slam: {fileID: 0}
   outState_SkyStrike: {fileID: 0}
   outState_Slash: {fileID: 204791951883483492}
-  outState_Bolt: {fileID: 0}
   outState_Aura: {fileID: 0}
 --- !u!114 &6651739745356360783
 MonoBehaviour:
@@ -5515,15 +5527,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ec7713678683484cbe57718cec0242b, type: 3}
---- !u!4 &8450346319280200341 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2838056488278257702, guid: 8ec7713678683484cbe57718cec0242b,
-    type: 3}
-  m_PrefabInstance: {fileID: 5919810609316670131}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1411744448211907996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4733532226084691759, guid: 8ec7713678683484cbe57718cec0242b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5919810609316670131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8450346319280200341 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2838056488278257702, guid: 8ec7713678683484cbe57718cec0242b,
     type: 3}
   m_PrefabInstance: {fileID: 5919810609316670131}
   m_PrefabAsset: {fileID: 0}

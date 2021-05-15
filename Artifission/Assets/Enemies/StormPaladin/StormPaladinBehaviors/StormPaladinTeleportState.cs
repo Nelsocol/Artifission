@@ -30,7 +30,7 @@ namespace Assets.Enemies.StormPaladin.StormPaladinBehaviors
                 context.creatureReference.transform.SetPositionAndRotation(controlPointSelection.position, Quaternion.identity);
                 
                 // Switch back to centered or edge state.
-                if (controlPoints.FarControlPoints(context.creatureReference.transform.position).IndexOf(controlPointSelection) == 1)
+                if (controlPoints.ControlPoints().IndexOf(controlPointSelection) == 1)
                 {
                     context.brainReference.ChangeState(outState_Center as ICreatureState);
                 }
@@ -45,7 +45,7 @@ namespace Assets.Enemies.StormPaladin.StormPaladinBehaviors
 
         public void InitateState(StateContext context)
         {
-            controlPointSelection = controlPoints.FarControlPoints(context.creatureReference.transform.position)[Random.Range(0, controlPoints.FarControlPoints(context.creatureReference.transform.position).Count)];
+            controlPointSelection = controlPoints.FarControlPoints(context.creatureReference.transform.position)[Random.Range(0, controlPoints.ControlPoints().Count-1)];
             Instantiate(destinationAOEObject, controlPointSelection, false);
         }
 
