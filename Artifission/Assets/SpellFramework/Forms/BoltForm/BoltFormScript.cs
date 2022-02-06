@@ -28,7 +28,6 @@ public class BoltFormScript : MonoBehaviour, ISpellForm
         projectileScript.hitData = hitData;
         projectileScript.effectScript = spellEffect;
 
-
         foreach (ParticleSystem particleSystem in projectile.GetComponentsInChildren<ParticleSystem>())
         {
             spellEffect.ApplyParticleSystemEffectors(particleSystem);

@@ -18,15 +18,21 @@ public class SpellForgeController : MonoBehaviour
             Destroy(tile.gameObject);
         }
 
-        float currentHeight = 4.5f;
+        float currentHeight = 0f;
+        float currentXOffset = 0;
 
         foreach(RuneRecord rune in playerBindings.GetComponentInChildren<PlayerRuneList>().runeCollection.Where(e => e.unlocked))
         {
             GameObject newTile = Instantiate(tileObject, transform);
-            newTile.transform.localPosition = new Vector3(-8 + Random.Range(-0.1f, 0.1f),currentHeight,-1);
+            newTile.transform.localPosition = new Vector3(-8 + Random.Range(-0.1f, 0.1f) + currentXOffset,currentHeight,-1);
             newTile.GetComponent<TileScript>().boundRune = rune;
             newTile.GetComponent<SpriteRenderer>().sprite = rune.tileSprite;
-            currentHeight -= 0.75f;
+            currentHeight -= 1f;
+            if(currentHeight < -4)
+            {
+                currentHeight = -0;
+                currentXOffset += 1f;
+            }
         }
     }
     
