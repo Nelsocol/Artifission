@@ -11,6 +11,7 @@ public class CameraShakeBindings : MonoBehaviour
     private float shakeAmount = 0;
     private float elapsedTime = 0;
     private bool outOfPosition;
+    private bool shaking = false;
 
     void Start()
     {
@@ -19,29 +20,33 @@ public class CameraShakeBindings : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(elapsedTime > 0)
-        {
-            if (!outOfPosition)
+        if (shaking) {
+            if (elapsedTime > 0)
             {
-                transform.position += new Vector3(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount), 0);
-                outOfPosition = true;
+                if (!outOfPosition)
+                {
+                    transform.position += new Vector3(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount), 0);
+                    outOfPosition = true;
+                }
+                else
+                {
+                    myTransform.position = new Vector3(0, 0, transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
+                    outOfPosition = false;
+                }
+                elapsedTime -= Time.fixedDeltaTime;
+            }
+            else if (outOfPosition)
+            {
+                myTransform.position = new Vector3(0, 0, transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
+                outOfPosition = false;
+                trackingScript.state = CameraState.TRACKING;
+                shaking = false;
             }
             else
             {
-                myTransform.position = new Vector3(0,0,transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
-                outOfPosition = false;
+                trackingScript.state = CameraState.TRACKING;
+                shaking = false;
             }
-            elapsedTime -= Time.fixedDeltaTime;
-        }
-        else if(outOfPosition)
-        {
-            myTransform.position = new Vector3(0, 0, transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
-            outOfPosition = false;
-            trackingScript.tracking = true;
-        }
-        else
-        {
-            trackingScript.tracking = true;
         }
     }
 
@@ -52,7 +57,8 @@ public class CameraShakeBindings : MonoBehaviour
             shakeAmount = amount;
             elapsedTime = timeSpan;
             outOfPosition = true;
-            trackingScript.tracking = false;
+            trackingScript.state = CameraState.CUTSCENE;
+            shaking = true;
         }
     }
 }
