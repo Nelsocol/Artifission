@@ -425,6 +425,8 @@ MonoBehaviour:
   maxHP: 100
   weight: 5
   deathParticlesOverriden: 0
+  damageTextPrefab: {fileID: 4939784043941085429, guid: 1f729f1d934bde348999c82e688c1c2f,
+    type: 3}
 --- !u!70 &452153681690118855
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -31,7 +31,6 @@ public class PlayerHealthBarScript : MonoBehaviour
         fullBarTransform.localScale = new Vector3(barLength, barHeight, 1);
 
         emptyBarTransform = emptyBarAsset.GetComponent<Transform>();
-        emptyBarTransform.localScale = fullBarTransform.localScale;
     }
 
     void Update()

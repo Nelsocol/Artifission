@@ -48,8 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnParticles: {fileID: 8422934414078485769}
   deathParticles: {fileID: 1857369025884394349}
-  tickRate: 0.1
-  statusTime: 5
+  tickRate: 0.5
 --- !u!114 &4147632471661751809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8547f89a19b36448a2e6ff711086534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 0.1
+  baseDamage: 0.5
   baseImpact: 0
   hitSource: {x: 0, y: 0}
   statusChance: 0

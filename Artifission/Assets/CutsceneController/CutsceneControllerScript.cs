@@ -25,7 +25,7 @@ public class CutsceneControllerScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!seen) {
+        if (!seen && collision.tag == "Player") {
             seen = true;
             StartCutscene();
         }     

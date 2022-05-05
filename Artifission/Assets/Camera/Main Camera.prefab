@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7b3748ba0724542926fd9eaf973b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackingScript: {fileID: 0}
 --- !u!114 &1390493472211677254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  state: 0
 --- !u!114 &4054108815979574659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullBarAsset: {fileID: 4220493509315941604}
-  emptyBarAsset: {fileID: 5411434547853430102}
+  emptyBarAsset: {fileID: 0}
   barLength: 4
   barHeight: 0.3
 --- !u!1001 &1390493472365168622
@@ -237,16 +239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: parentBindings
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6575113095739367733, guid: 5b99a9890c0675c45b7d621d6d75ea08,
-        type: 3}
-      propertyPath: barHeight
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6575113095739367733, guid: 5b99a9890c0675c45b7d621d6d75ea08,
-        type: 3}
-      propertyPath: barLength
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8812697756607974436, guid: 5b99a9890c0675c45b7d621d6d75ea08,
         type: 3}
@@ -419,12 +411,6 @@ GameObject:
 --- !u!4 &696991589180376022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1936601003332628015, guid: 3e7a7eec0cdd7544ebbd42333d4e78e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1390493472985083385}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5411434547853430102 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6365065660226265263, guid: 3e7a7eec0cdd7544ebbd42333d4e78e3,
     type: 3}
   m_PrefabInstance: {fileID: 1390493472985083385}
   m_PrefabAsset: {fileID: 0}

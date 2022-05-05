@@ -320,6 +320,8 @@ MonoBehaviour:
   maxHP: 12
   weight: 0.2
   deathParticlesOverriden: 0
+  damageTextPrefab: {fileID: 4939784043941085429, guid: 1f729f1d934bde348999c82e688c1c2f,
+    type: 3}
 --- !u!1 &5925514726448495703
 GameObject:
   m_ObjectHideFlags: 0

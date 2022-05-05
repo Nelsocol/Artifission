@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
@@ -14,6 +15,7 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
     public float maxHP;
     public float weight;
     public bool deathParticlesOverriden;
+    public GameObject damageTextPrefab;
 
     private float currentHP;
 
@@ -41,6 +43,11 @@ public class StandardEnemyBindings : MonoBehaviour, UniversalCreatureBindings
     public virtual bool TakeHit(UnifiedHitData hitData, float hitScalar)
     {
         currentHP -= hitData.baseDamage * hitScalar;
+        if (damageTextPrefab != null) {
+            TextMeshPro damageText = Instantiate(damageTextPrefab, transform.position, Quaternion.identity).GetComponent<TextMeshPro>();
+            damageText.text = (hitData.baseDamage * hitScalar).ToString();
+            damageText.fontSize *= Mathf.Log(2f + hitData.baseDamage * hitScalar);
+        }
 
         if (currentHP <= 0)
         {
