@@ -14,9 +14,6 @@ public class BoltProjectileBehavior : MonoBehaviour
     public UnifiedHitData hitData;
     public float pauseTimeOnHit;
     public ISpellEffect effectScript;
-    public AudioSource firingSound;
-    public AudioSource enemyImpactSound;
-    public AudioSource surfaceImpactSound;
 
     private Vector2 movementVector;
     private float lifeTime = 3;
@@ -26,7 +23,6 @@ public class BoltProjectileBehavior : MonoBehaviour
     {
         thisTransform = GetComponent<Transform>();
         movementVector = ((Vector2)Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - (Vector2)thisTransform.position).normalized;
-        firingSound.Play();
     }
 
     void Update()
@@ -56,7 +52,6 @@ public class BoltProjectileBehavior : MonoBehaviour
         if (collision.gameObject.tag != "Player" && collision.gameObject.layer != 8 && collision.gameObject.layer != 11)
         {
             effectScript.SpecialOnTriggerAction(transform.position);
-            firingSound.transform.parent = null;
 
             bool enemyKilled = false;
             UniversalCreatureBindings enemyBindings;
@@ -65,11 +60,6 @@ public class BoltProjectileBehavior : MonoBehaviour
                 hitData.hitSource = thisTransform.position;
                 enemyKilled = enemyBindings.TakeHit(hitData, 1);
                 effectScript.SpecialOnHitAction(collision.gameObject, hitData);
-                enemyImpactSound.Play();
-            }
-            else 
-            {
-                surfaceImpactSound.Play();
             }
 
             foreach (ParticleSystem particleSystem in burstParticles.GetComponents<ParticleSystem>())
