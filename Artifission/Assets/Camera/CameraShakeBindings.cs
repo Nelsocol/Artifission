@@ -30,14 +30,14 @@ public class CameraShakeBindings : MonoBehaviour
                 }
                 else
                 {
-                    myTransform.position = new Vector3(0, 0, transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
+                    myTransform.position = new Vector3(0, trackingScript.heightOffset, transform.position.z) + (trackingScript.yFixed ? new Vector3(trackingScript.player.transform.position.x, trackingScript.fixedYPlane, 0) : (Vector3)(Vector2)trackingScript.player.transform.position);
                     outOfPosition = false;
                 }
                 elapsedTime -= Time.fixedDeltaTime;
             }
             else if (outOfPosition)
             {
-                myTransform.position = new Vector3(0, 0, transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
+                myTransform.position = new Vector3(0, trackingScript.heightOffset, transform.position.z) + (Vector3)(Vector2)trackingScript.player.transform.position;
                 outOfPosition = false;
                 trackingScript.state = CameraState.TRACKING;
                 shaking = false;
